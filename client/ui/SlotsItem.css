@@ -1,0 +1,4 @@
+.slot-disabled label {
+    text-decoration: line-through;
+    color: grey;
+}

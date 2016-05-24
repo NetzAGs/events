@@ -1,0 +1,27 @@
+<template name="Events_detail">
+	{{#if currentUser }}
+	<h1>{{event.title}}</h1>
+	<div class="row">
+		<div class="col-xs-12 col-md-4"
+	   		style="background-image: url('/img/tf.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+			<div class="container" style="background-color: rgba(255, 255, 255, 0.85);">
+				<h2>Most needed</h2>
+				<ul class="slot-list">
+					{{#each topSlots}}
+					    {{> Slots_item }}
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+		{{#each tasks}}
+		{{> Tasks_item }}
+		{{/each}}
+	</div>
+	{{else}}
+	<div class="row">
+		<div class="col-xs-12 alert alert-danger">
+			Please sign in first!
+		</div>
+	</div>
+	{{/if}}
+</template>
