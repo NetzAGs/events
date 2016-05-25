@@ -6,8 +6,7 @@ Template.Admin.helpers({
         console.log("hi systemadmins");
         return Roles.getUsersInRole('system_admin');
     },
-    settings() {
-        console.log("hi settings");
+    autocompleteSettings() {
         return {
             position: 'bottom',
             limit: 5,
@@ -28,19 +27,26 @@ Template.Admin.events({
             title: event.target.eventTitle.value,
             date: event.target.eventDate.value,
             desc: {de: "", en: ""},
+            closed: false,
             img: ""
         };
-        if(Events.findOne({_id: newEvent._id})) {
-            alert("ID " + newEvent._id + " already taken!");
-            return;
-        }
-        Events.insert(newEvent);
+        Meteor.call('events.insert', newEvent);
         FlowRouter.go('events.list');
     },
     'autocompleteselect #adminselect': function(event, template, doc) {
         console.log("selected user:", doc);
         event.target.value = "";
-        // FIXME to server code
-        Roles.addUsersToRoles(doc, 'system_admin', Roles.GLOBAL_GROUP);
+        Meteor.call('system.makeadmin', doc._id);
+    }
+});
+
+Template.System_admin_list_item.events({
+    'click .system-admin-remove'(event) {
+        let thisUser = this;
+        bootbox.confirm("Really remove " + this.profile.name + " from the admin list?", function(resp) {
+            if(resp) {
+                Meteor.call('system.removeadmin', thisUser._id);
+            }
+        });
     }
 });

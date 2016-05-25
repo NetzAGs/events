@@ -3,7 +3,6 @@ accounts-password@1.1.8
 alanning:roles@1.2.15
 allow-deny@1.0.4
 anti:i18n@0.4.3
-autopublish@1.0.7
 autoupdate@1.2.9
 babel-compiler@6.6.4
 babel-runtime@0.1.8
@@ -41,7 +40,6 @@ huttonr:bootstrap3@3.3.6_10
 huttonr:bootstrap3-assets@3.3.6_3
 ian:accounts-ui-bootstrap-3@1.2.89
 id-map@1.0.7
-insecure@1.0.7
 jquery@1.11.8
 kadira:blaze-layout@2.3.0
 kadira:flow-router@2.12.1

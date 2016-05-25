@@ -6,14 +6,14 @@
                     <h2>Create new event</h2>
                     <input type="text" class="form-control" placeholder="Title" name="eventTitle">
                     <input type="text" class="form-control" placeholder="ID" name="eventId">
-                    <input type="date" class="form-control" placeholder="Date" name="eventDate">
+                    <input type="date" class="form-control" placeholder="Date (YYYY-MM-DD)" name="eventDate">
                     <input type="submit" class="btn btn-success" value="Create">
                 </div>
             </form>
         </div>
         <div class="col-sm-4">
             <h2>System admins</h2>
-            {{> inputAutocomplete settings=settings id="adminselect" class="form-control input-xlarge" placeholder="Search for users..."}}
+            {{> inputAutocomplete settings=autocompleteSettings id="adminselect" class="form-control input-xlarge" placeholder="Search for users..."}}
             <ul class="system-admins">
                 {{#each systemadmins}}
                     {{> System_admin_list_item }}

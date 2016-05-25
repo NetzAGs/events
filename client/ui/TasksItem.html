@@ -4,7 +4,7 @@
         <div class="container" style="background-color: rgba(255, 255, 255, 0.85);">
             <h2>{{title.en}}</h2>
             <p>{{desc.en}}</p>
-            <p><strong>Required:</strong> {{required.en}}</p>
+            {{#if required.en}}<p><strong>Required:</strong> {{required.en}}</p>{{/if}}
             {{#if isInRole ['task_admin'] _id}}
             <p>
                 <button class="btn btn-success task-checkin">Check-in</button>

@@ -1,6 +1,15 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
+Template.App_body.onCreated(function() {
+    console.log("body created");
+    Meteor.subscribe('events');
+    Meteor.subscribe('tasks');
+    Meteor.subscribe('slots');
+    Meteor.subscribe('volunteers');
+    Meteor.subscribe('users');
+});
+
 Template.App_body.helpers({
     userNotVerified() {
         if(!Meteor.user()) {

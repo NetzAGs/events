@@ -2,7 +2,7 @@
     <div class="row" style="background-image: url('{{img}}'); background-size: cover; background-repeat: no-repeat; background-position: center">
         <div class="col-xs-12 col-sm-6" style="background-color: rgba(255,255,255,0.85);">
             <h1>{{title}}</h1>
-            <h2>{{localDate date}}</h2>
+            <h2>{{displayDate date}}</h2>
             <p>{{desc.en}}</p>
             <p>
                 <button class="btn btn-success event-join">Join the party!</button>
@@ -11,6 +11,9 @@
                 {{/if}}
                 {{#if isInRole 'event_admin,system_admin' _id}}
                 <button class="btn btn-danger event-admin">Admin</button>
+                {{/if}}
+                {{#if isInRole 'system_admin'}}
+                <button class="btn btn-danger event-delete">Delete</button>
                 {{/if}}
             </p>
         </div>

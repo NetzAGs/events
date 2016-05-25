@@ -36,18 +36,8 @@ Template.Slots_item.helpers({
 
 Template.Slots_item.events({
     'change [type=checkbox]'(event) {
+        console.log("change!!");
         const checked = $(event.target).is(':checked');
-        if(checked) {
-            Volunteers.insert({userId: Meteor.userId(), slot: this, checkedIn: 0});
-            Slots.update({_id: this._id}, {$inc: {curcap: -1, curcount: 1}});
-        } else {
-            let old = Volunteers.findOne({userId: Meteor.userId(), 'slot._id': this._id});
-            if(old) {
-                Volunteers.remove({_id: old._id});
-                Slots.update({_id: this._id}, {$inc: {curcap: 1, curcount: -1}});
-            } else {
-                return false;
-            }
-        }
+        Meteor.call('slots.volunteer', this._id, checked);
     }
 });
