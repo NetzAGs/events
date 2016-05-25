@@ -15,10 +15,12 @@
                     {{> loginButtons }}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">Dashboard</a></li>
-                    <li><a href="/settings">Settings</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/help">Help</a></li>
+                    {{#if currentUser}}
+                        {{#if isInRole 'system_admin'}}
+                            <li><a href="/admin">Admin</a></li>
+                        {{/if}}
+                        <li><a href="/profile">Profile</a></li>
+                    {{/if}}
                 </ul>
             </div>
         </div>

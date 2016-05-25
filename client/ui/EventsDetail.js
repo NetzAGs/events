@@ -11,5 +11,8 @@ Template.Events_detail.helpers({
     topSlots() {
         const lim = 6;
         return Slots.find({eventId: FlowRouter.getParam('_id'), curcap: {$gt: 0}}, {sort: {curcap: -1}, limit: lim});
+    },
+    mySlots() {
+        return Volunteers.find({userId: Meteor.userId(), 'slot.eventId': FlowRouter.getParam('_id')}, {sort: {'slot.startTime': 1}});
     }
 });

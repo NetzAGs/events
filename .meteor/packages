@@ -25,3 +25,6 @@ kadira:flow-router
 kadira:blaze-layout
 ian:accounts-ui-bootstrap-3
 accounts-password
+momentjs:moment
+mizzao:bootboxjs
+mizzao:autocomplete

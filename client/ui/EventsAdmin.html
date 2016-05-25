@@ -1,0 +1,48 @@
+<template name="Events_admin">
+    {{#if currentUser }}
+    {{#if isInRole 'system_admin,event_admin' event._id}}
+    <h1>{{event.title}}</h1>
+    <div class="row">
+        <div class="col-sm-4">
+            <form class="event-modify">
+                <div class="form-group">
+                    <label for="eventTitle">Title</label>
+                    <input type="text" class="form-control" id="eventTitle" name="title" placeholder="Title" value="{{event.title}}">
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Date</label>
+                    <input type="date" class="form-control" id="eventDate" name="date" placeholder="Date" value="{{localDate event.date}}">
+                </div>
+                <div class="form-group">
+                    <label for="eventDescDe">Description (german)</label>
+                    <textarea class="form-control" id="eventDescDe" name="desc.de" rows=3 placeholder="Description (german)">{{event.desc.de}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="eventDescEn">Description (english)</label>
+                    <textarea class="form-control" id="eventDescEn" name="desc.en" rows=3 placeholder="Description (english)">{{event.desc.en}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="eventImg">Image</label>
+                    <input type="text" class="form-control" id="eventImg" name="img" placeholder="Image" value="{{event.img}}">
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button class="btn btn-warning event-close">Close event</button>
+                <button class="btn btn-danger event-delete">Delete</button>
+            </form>
+        </div>
+    </div>
+    {{else}}
+    <div class="row">
+        <div class="col-xs-12 alert alert-danger">
+            No permission!
+        </div>
+    </div>
+    {{/if}}
+    {{else}}
+    <div class="row">
+        <div class="col-xs-12 alert alert-danger">
+            Please sign in first!
+        </div>
+    </div>
+    {{/if}}
+</template>

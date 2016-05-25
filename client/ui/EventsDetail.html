@@ -2,9 +2,8 @@
 	{{#if currentUser }}
 	<h1>{{event.title}}</h1>
 	<div class="row">
-		<div class="col-xs-12 col-md-4"
-	   		style="background-image: url('/img/tf.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
-			<div class="container" style="background-color: rgba(255, 255, 255, 0.85);">
+        <div class="col-xs-12 col-md-6">
+            <div class="container">
 				<h2>Most needed</h2>
 				<ul class="slot-list">
 					{{#each topSlots}}
@@ -13,6 +12,22 @@
 				</ul>
 			</div>
 		</div>
+        <div class="col-xs-12 col-md-6">
+            <div class="container">
+				<h2>Your schedule</h2>
+                {{#if mySlots.count}}
+				<ul class="schedule">
+					{{#each mySlots}}
+                        <li>{{slot.desc.en}}</li>
+					{{/each}}
+				</ul>
+                {{else}}
+                <p><em>You didn't select any tasks :( Are you sure you want to miss the experience?</em></p>
+                {{/if}}
+			</div>
+		</div>
+    </div>
+    <div class="row">
 		{{#each tasks}}
 		{{> Tasks_item }}
 		{{/each}}
