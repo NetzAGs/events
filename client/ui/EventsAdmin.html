@@ -26,15 +26,23 @@
                     <input type="text" class="form-control" id="eventImg" name="img" placeholder="Image" value="{{event.img}}">
                 </div>
                 <button type="submit" class="btn btn-success">Submit</button>
-                <button class="btn btn-warning event-close">Close event</button>
             </form>
         </div>
         <div class="col-sm-4">
             <h2>Event admins</h2>
             {{> inputAutocomplete settings=autocompleteSettings id="event-admin-select" class="form-control input-xlarge" placeholder="Search for users..."}}
             <ul class="event-admins">
-                {{#each eventadmins}}
+                {{#each event_admins }}
                     {{> Event_admin_list_item }}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <h2>Event coordinators</h2>
+            {{> inputAutocomplete settings=autocompleteSettings id="coordinator-select" class="form-control input-xlarge" placeholder="Search for users..."}}
+            <ul class="coordinators">
+                {{#each coordinators }}
+                    {{> Coordinator_list_item }}
                 {{/each}}
             </ul>
         </div>

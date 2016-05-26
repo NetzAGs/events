@@ -2,14 +2,17 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
 Template.Events_admin.helpers({
-	event() {
+    event() {
         return Events.findOne({_id: FlowRouter.getParam('_id')});
-	},
+    },
     tasks() {
         return Tasks.find({eventId: FlowRouter.getParam('_id')});
     },
-    eventadmins() {
+    event_admins() {
         return Roles.getUsersInRole('event_admin', FlowRouter.getParam('_id'));
+    },
+    coordinators() {
+        return Roles.getUsersInRole('coordinator', FlowRouter.getParam('_id'));
     },
     autocompleteSettings() {
         return {
@@ -43,18 +46,31 @@ Template.Events_admin.events({
     'autocompleteselect #event-admin-select': function(event, template, doc) {
         event.target.value = "";
         let eventId = FlowRouter.getParam('_id');
-        console.log("events.makeadmin", doc._id, eventId);
         Meteor.call('events.makeadmin', doc._id, eventId);
+    },
+    'autocompleteselect #coordinator-select': function(event, template, doc) {
+        event.target.value = "";
+        let eventId = FlowRouter.getParam('_id');
+        Meteor.call('events.makecoordinator', doc._id, eventId);
     }
 });
 
 Template.Event_admin_list_item.events({
     'click .event-admin-remove'(event) {
         let thisUser = this;
-		let eventId = FlowRouter.getParam('_id');
+        let eventId = FlowRouter.getParam('_id');
         bootbox.confirm("Really remove " + this.profile.name + " from the event admin list?", function(resp) {
             if(resp) {
                 Meteor.call('events.removeadmin', thisUser._id, eventId);
+            }
+        });
+    },
+    'click .coordinator-remove'(event) {
+        let thisUser = this;
+        let eventId = FlowRouter.getParam('_id');
+        bootbox.confirm("Really remove " + this.profile.name + " from the coordinator list?", function(resp) {
+            if(resp) {
+                Meteor.call('events.removecoordinator', thisUser._id, eventId);
             }
         });
     }
