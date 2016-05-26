@@ -42,7 +42,13 @@ Template.Events_admin.events({
     'submit form.event-modify': function(event) {
         event.preventDefault();
         const changedEvent = {
-            title: event.target.eventTitle.value
+            title: event.target.eventTitle.value,
+            date: new Date(event.target.eventDate.value),
+            desc: {
+                de: event.target.eventDescDe,
+                en: event.target.eventDescEn
+            },
+            img: event.target.eventImg
         };
         const eventId = FlowRouter.getParam('_id');
         Meteor.call('events.update', eventId, changedEvent);
