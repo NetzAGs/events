@@ -7,7 +7,7 @@
             <form class="event-modify">
                 <div class="form-group">
                     <label for="eventTitle">Title</label>
-                    <input type="text" class="form-control" id="eventTitle" name="title" placeholder="Title" value="{{event.title}}">
+                    <input type="text" class="form-control" id="eventTitle" name="eventTitle" placeholder="Title" value="{{event.title}}">
                 </div>
                 <div class="form-group">
                     <label for="eventDate">Date (YYYY-MM-DD)</label>
@@ -30,19 +30,44 @@
         </div>
         <div class="col-sm-4">
             <h2>Event admins</h2>
+            <p>Event admins can ...</p>
+            <ul>
+                <li>manage the event, i.e. change settings</li>
+                <li>create tasks</li>
+                <li>set event and task admins and coordinators</li>
+            </ul>
             {{> inputAutocomplete settings=autocompleteSettings id="event-admin-select" class="form-control input-xlarge" placeholder="Search for users..."}}
             <ul class="event-admins">
                 {{#each event_admins }}
-                    {{> Event_admin_list_item }}
+                {{> Event_admin_list_item }}
+                {{/each}}
+            </ul>
+            <h2>Event coordinators</h2>
+            <p>Event coordinators can ...</p>
+            <ul>
+                <li>add and list volunteers</li>
+            </ul>
+            {{> inputAutocomplete settings=autocompleteSettings id="coordinator-select" class="form-control input-xlarge" placeholder="Search for users..."}}
+            <ul class="coordinators">
+                {{#each coordinators }}
+                {{> Coordinator_list_item }}
                 {{/each}}
             </ul>
         </div>
         <div class="col-sm-4">
-            <h2>Event coordinators</h2>
-            {{> inputAutocomplete settings=autocompleteSettings id="coordinator-select" class="form-control input-xlarge" placeholder="Search for users..."}}
-            <ul class="coordinators">
-                {{#each coordinators }}
-                    {{> Coordinator_list_item }}
+            <h2>Tasks</h2>
+            <form class="add-task form-inline">
+                <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="taskTitleDe" placeholder="Titel (deutsch)">
+                    <input type="text" class="form-control" name="taskTitleEn" placeholder="Title (english)">
+                    <button type="submit" class="btn btn-success add-task-submit">Add</button>
+                </div>
+                </div>
+            </form>
+            <ul class="tasks-list">
+                {{#each tasks}}
+                    {{> Event_tasks_list_item }}
                 {{/each}}
             </ul>
         </div>

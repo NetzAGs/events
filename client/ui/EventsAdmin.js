@@ -41,6 +41,11 @@ Template.Events_admin.events({
     },
     'submit form.event-modify': function(event) {
         event.preventDefault();
+        const changedEvent = {
+            title: event.target.eventTitle.value
+        };
+        const eventId = FlowRouter.getParam('_id');
+        Meteor.call('events.update', eventId, changedEvent);
         //
     },
     'autocompleteselect #event-admin-select': function(event, template, doc) {
@@ -52,6 +57,19 @@ Template.Events_admin.events({
         event.target.value = "";
         let eventId = FlowRouter.getParam('_id');
         Meteor.call('events.makecoordinator', doc._id, eventId);
+    },
+    'submit form.add-task'(event) {
+        event.preventDefault();
+        let eventId = FlowRouter.getParam('_id');
+        console.log(event);
+        let newTask = {
+            title: {
+                de: event.target.taskTitleDe.value,
+                en: event.target.taskTitleEn.value,
+            },
+            eventId: eventId
+        };
+        Meteor.call('tasks.insert', newTask);
     }
 });
 
@@ -75,3 +93,18 @@ Template.Event_admin_list_item.events({
         });
     }
 });
+
+Template.Event_tasks_list_item.events({
+    'click .event-task-admin'(event) {
+        FlowRouter.go('tasks.admin', {_id: this._id});
+    },
+    'click .event-task-remove'(event) {
+        let thisTask = this;
+        bootbox.confirm("Remove " + this.title.en + "?", function(resp) {
+            if(resp) {
+                Meteor.call('tasks.remove', thisTask._id);
+            }
+        });
+    }
+});
+
