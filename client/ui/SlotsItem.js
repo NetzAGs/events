@@ -9,12 +9,19 @@ Template.Slots_item.helpers({
     disabled() {
         let taken = Volunteers.findOne({
             userId: Meteor.userId(),
+            'slot._id': this._id
+        });
+        if(taken) {
+            return false;
+        }
+        let overlap = Volunteers.findOne({
+            userId: Meteor.userId(),
             'slot._id': {$ne : this._id},
             'slot.allday': false,
             'slot.endTime': {$gt: this.startTime},
             'slot.startTime': {$lt: this.endTime}
         });
-        if(taken) {
+        if(overlap) {
             // user has different slot with time overlap
             return true;
         } else {

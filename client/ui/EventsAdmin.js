@@ -45,11 +45,12 @@ Template.Events_admin.events({
             title: event.target.eventTitle.value,
             date: new Date(event.target.eventDate.value),
             desc: {
-                de: event.target.eventDescDe,
-                en: event.target.eventDescEn
+                de: event.target.eventDescDe.value,
+                en: event.target.eventDescEn.value
             },
-            img: event.target.eventImg
+            img: event.target.eventImg.value
         };
+        console.log("modify:", changedEvent);
         const eventId = FlowRouter.getParam('_id');
         Meteor.call('events.update', eventId, changedEvent);
         //
