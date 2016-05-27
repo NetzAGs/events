@@ -50,10 +50,8 @@ Template.Events_admin.events({
             },
             img: event.target.eventImg.value
         };
-        console.log("modify:", changedEvent);
         const eventId = FlowRouter.getParam('_id');
         Meteor.call('events.update', eventId, changedEvent);
-        //
     },
     'autocompleteselect #event-admin-select': function(event, template, doc) {
         event.target.value = "";

@@ -1,3 +1,66 @@
 <template name="Tasks_admin">
-    task admin yeah
+    {{#if currentUser }}
+    {{#if hasPermission }}
+    <h1><a href="{{eventPath}}">{{event.title}}</a> / {{task.title.en}}</h1>
+    <div class="row">
+        <div class="col-sm-4">
+            <form class="task-modify">
+                <div class="form-group">
+                    <label for="taskTitleDe">Title (german)</label>
+                    <input type="text" class="form-control" id="taskTitleDe" name="taskTitleDe" placeholder="Title (german)" value="{{task.title.de}}">
+                </div>
+                <div class="form-group">
+                    <label for="taskTitleEn">Title (english)</label>
+                    <input type="text" class="form-control" id="taskTitleEn" name="taskTitleEn" placeholder="Title (english)" value="{{task.title.en}}">
+                </div>
+                <div class="form-group">
+                    <label for="taskDescDe">Description (german)</label>
+                    <textarea rows=3 class="form-control" id="taskDescDe" name="taskDescDe" placeholder="Description (german)">{{task.desc.de}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="taskDescEn">Description (english)</label>
+                    <textarea rows=3 class="form-control" id="taskDescEn" name="taskDescEn" placeholder="Description (english)">{{task.desc.en}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="taskImg">Image</label>
+                    <input type="text" class="form-control" id="taskImg" name="taskImg" placeholder="Image" value="{{task.img}}">
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <h2>Task admins</h2>
+            <p>Task admins can ...</p>
+            <ul>
+                <li>manage the task, i.e. change settings</li>
+                <li>create and modify time slots</li>
+                <li>set task admins</li>
+                <li>manage volunteers</li>
+            </ul>
+            {{> inputAutocomplete settings=autocompleteSettings id="task-admin-select" class="form-control input-xlarge" placeholder="Search for users..."}}
+            <ul class="task-admins">
+                {{#each taskadmins }}
+                {{> Task_admin_list_item }}
+                {{/each}}
+            </ul>
+
+        </div>
+        <div class="col-sm-4">
+            <h2>Time slots</h2>
+        </div>
+    </div>
+    {{else}}
+    <div class="row">
+        <div class="col-xs-12 alert alert-danger">
+            No permission!
+        </div>
+    </div>
+    {{/if}}
+    {{else}}
+    <div class="row">
+        <div class="col-xs-12 alert alert-danger">
+            Please sign in first!
+        </div>
+    </div>
+    {{/if}}
 </template>
