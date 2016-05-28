@@ -1,0 +1,6 @@
+<template name="Tasks_volunteers">
+    <h1><a href="{{eventPath}}">{{event.title}}</a> / {{task.title.en}}</h1>
+    {{#each slots}}
+    {{> Tasks_slot_volunteers}}
+    {{/each}}
+</template>

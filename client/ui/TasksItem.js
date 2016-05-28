@@ -24,5 +24,9 @@ Template.Tasks_item.events({
     'click .task-admin'(event) {
         event.preventDefault();
         FlowRouter.go('tasks.admin', this);
+    },
+    'click .task-checkin'(event) {
+        event.preventDefault();
+        FlowRouter.go('tasks.volunteers', this);
     }
 });

@@ -1,0 +1,18 @@
+<template name="Tasks_slot_volunteers">
+    <h2>{{title.en}}</h2>
+    {{#if volunteers.count}}
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Room</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        {{#each volunteers}}
+        {{> Tasks_slot_volunteers_item}}
+        {{/each}}
+    </table>
+    {{else}}
+    <em>No volunteers!</em>
+    {{/if}}
+</template>
