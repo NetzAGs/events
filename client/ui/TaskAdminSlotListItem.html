@@ -1,0 +1,22 @@
+<template name="Task_admin_slot_list_item">
+    <hr>
+    <form class="modify-slot">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Title (en)" name="slotTitleEn" value="{{title.en}}">
+            <input type="text" class="form-control" placeholder="Title (de)" name="slotTitleDe" value="{{title.de}}">
+            <input type="checkbox" name="slotAllday" id="slot-allday-{{_id}}" checked="{{allday}}">
+            <label for="slot-allday-{{_id}}">whole day</label>
+            <label for="slot-starttime-{{_id}}">Start time</label>
+                <input type="datetime" class="form-control" placeholder="Start time" id="slot-starttime-{{_id}}" name="slotStartTime" value="{{fmtdatetime startTime}}">
+                <label for="slot-endtime-{{_id}}">End time</label>
+                <br>
+            <input type="datetime" class="form-control" placeholder="End time" id="slot-endtime-{{_id}}" name="slotEndTime" value="{{fmtdatetime endTime}}">
+            <label for="slotMincap">Volunteers</label>
+            <input type="number" class="form-control" id="slotMincap" name="slotMincap" value="{{mincap}}">
+            <label for="slotBuffer">Buffer</label>
+            <input type="number" class="form-control" id="slotBuffer" name="slotBuffer" value="{{diff maxcap mincap}}">
+            <button type="submit" class="btn btn-success">Update</button>
+            <button class="btn btn-danger slot-remove">Delete</button>
+        </div>
+    </form>
+</template>

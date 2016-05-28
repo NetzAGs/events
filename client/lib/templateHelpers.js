@@ -12,3 +12,35 @@ Template.registerHelper('displayDate', function(date) {
         return moment(date).format("D.M.YYYY");
     }
 });
+
+Template.registerHelper('fmtdatetime', function(date) {
+    if(date) {
+        return moment(date).format("YYYY-MM-DD HH:mm");
+    }
+});
+
+Template.registerHelper('diff', function(a, b) {
+    return a - b;
+});
+
+Template.registerHelper('isModNotFirst', function(a, b) {
+    return (a != 0 && a % b == 0);
+});
+
+Template.registerHelper('chunksOf', function(col, n) {
+    let ret = [];
+    let cur = [];
+    let i = 0;
+    col.forEach(function(el) {
+        cur.push(el);
+        if(++i == n) {
+            ret.push(cur);
+            i = 0;
+            cur = [];
+        }
+    });
+    if(i) {
+        ret.push(cur);
+    }
+    return ret;
+});

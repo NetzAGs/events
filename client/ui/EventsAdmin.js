@@ -74,6 +74,8 @@ Template.Events_admin.events({
             },
             eventId: eventId
         };
+        event.target.taskTitleDe.value = "";
+        event.target.taskTitleEn.value = "";
         Meteor.call('tasks.insert', newTask);
     }
 });

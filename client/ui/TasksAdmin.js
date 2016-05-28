@@ -24,6 +24,10 @@ Template.Tasks_admin.helpers({
         }
         return perm;
     },
+    slots() {
+        const taskId = FlowRouter.getParam('_id');
+        return Slots.find({taskId: taskId}, {sort: {startTime: 1}});
+    },
     taskadmins() {
         return Roles.getUsersInRole('task_admin', FlowRouter.getParam('_id'));
     },
@@ -67,7 +71,33 @@ Template.Tasks_admin.events({
         const taskId = FlowRouter.getParam('_id');
         Meteor.call('tasks.update', taskId, changedTask);
     },  
-
+    'submit form.create-slot': function(event) {
+        event.preventDefault();
+        const taskId = FlowRouter.getParam('_id');
+        let task = Tasks.findOne({_id: taskId});
+        console.log("task:", task);
+        let startMom = moment(event.target.slotStartTime.value);
+        let endMom = moment(event.target.slotStartTime.value);
+        endMom.add(moment.duration(event.target.slotDuration.value));
+        let slotString = startMom.format('H:mm') + " - " + endMom.format('H:mm');
+        let newSlot = {
+            taskId: taskId,
+            eventId: task.eventId,
+            title: {
+                en: task.title.en + " " + slotString,
+                de: task.title.de + " " + slotString
+            },
+            startTime: startMom.toDate(),
+            endTime: endMom.toDate(),
+            allday: false,
+            mincap: parseInt(event.target.slotMincap.value),
+            maxcap: parseInt(event.target.slotMincap.value) + parseInt(event.target.slotBuffer.value),
+            curcount: 0,
+            curcap: parseInt(event.target.slotMincap.value),
+        };
+        console.log("newSlot:", newSlot);
+        Meteor.call('slots.insert', newSlot);
+    }
 });
 
 Template.Task_admin_list_item.events({

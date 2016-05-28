@@ -47,6 +47,24 @@
         </div>
         <div class="col-sm-4">
             <h2>Time slots</h2>
+            <form class="create-slot">
+                <div class="form-group">
+                    <label for="createSlotStartTime">Start time</label>
+                    <input type="datetime" class="form-control" id="createSlotStartTime" name="slotStartTime" value="{{fmtdatetime event.date}}">
+                    <label for="createSlotDuration">Duration (h:mm)</label>
+                    <input type="time" class="form-control" name="slotDuration" id="createSlotDuration" value="02:00">
+                    <label for="createSlotMincap">Volunteers</label>
+                    <input type="number" class="form-control" id="createSlotMincap" name="slotMincap" value="5">
+                    <label for="createSlotBuffer">Buffer</label>
+                    <input type="number" class="form-control" id="createSlotBuffer" name="slotBuffer" value="0">
+                    <button type="submit" class="btn btn-success">Create</button>
+                </div>
+            </form>
+            <div class="slots">
+                {{#each slots }}
+                {{> Task_admin_slot_list_item }}
+                {{/each}}
+            </div>
         </div>
     </div>
     {{else}}

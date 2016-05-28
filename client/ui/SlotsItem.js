@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
 Template.Slots_item.onCreated(function() {
-    console.log("onCreated:", this);
+    //console.log("onCreated:", this);
 });
 
 Template.Slots_item.helpers({

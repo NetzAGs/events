@@ -1,6 +1,7 @@
 <template name="Events_list_item">
-    <div class="row" style="background-image: url('{{img}}'); background-size: cover; background-repeat: no-repeat; background-position: center">
-        <div class="col-xs-12 col-sm-6" style="background-color: rgba(255,255,255,0.85);">
+    <div class="row"
+         style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('{{img}}'); background-size: cover; background-repeat: no-repeat; background-position: center; color: white;">
+        <div class="col-xs-12">
             <h1>{{title}}</h1>
             <h2>{{displayDate date}}</h2>
             <p>{{desc.en}}</p>
