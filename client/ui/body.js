@@ -2,7 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
 Template.App_body.onCreated(function() {
-    console.log("body created");
     Meteor.subscribe('events');
     Meteor.subscribe('tasks');
     Meteor.subscribe('slots');

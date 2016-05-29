@@ -43,7 +43,6 @@ Template.Slots_item.helpers({
 
 Template.Slots_item.events({
     'change [type=checkbox]'(event) {
-        console.log("change!!");
         const checked = $(event.target).is(':checked');
         Meteor.call('slots.volunteer', this._id, checked);
     }

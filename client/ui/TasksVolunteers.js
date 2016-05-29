@@ -5,12 +5,22 @@ Template.Tasks_volunteers.helpers({
     event() {
         const taskId = FlowRouter.getParam('_id');
         const task = Tasks.findOne({_id: taskId});
-        return Events.findOne({_id: task.eventId});
+        try {
+            return Events.findOne({_id: task.eventId});
+        }
+        catch(e) {
+            return "";
+        }
     },  
     eventPath() {
         const taskId = FlowRouter.getParam('_id');
         let task = Tasks.findOne({_id: taskId});
-        return FlowRouter.path('events.detail', {_id: task.eventId});
+        try {
+            return FlowRouter.path('events.detail', {_id: task.eventId});
+        }
+        catch(e) {
+            return "";
+        }
     },
     task() {
         const taskId = FlowRouter.getParam('_id');

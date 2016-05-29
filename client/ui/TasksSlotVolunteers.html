@@ -7,9 +7,10 @@
             <th>Room</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Check in</th>
         </tr>
-        {{#each volunteers}}
-        {{> Tasks_slot_volunteers_item}}
+        {{#each volunteer in volunteers}}
+        {{> Tasks_slot_volunteers_item volunteer=volunteer}}
         {{/each}}
     </table>
     {{else}}
