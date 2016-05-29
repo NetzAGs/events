@@ -14,3 +14,15 @@ body {
   overflow: hidden; 
 }
 */
+
+.row.events_list_item {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+}
+
+.row.events_list_item a,.row.events_list_item a:hover,.row.events_list_item a:link,.row.events_list_item a:visited {
+    color: inherit;
+    text-decoration: none;
+}

@@ -1,45 +1,57 @@
 <template name="Events_detail">
-	{{#if currentUser }}
-	<div class="row"
-      style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('{{event.img}}'); background-size: cover; background-repeat: no-repeat; background-position: center; color: white;">
-	<h1 class="col-xs-12">{{event.title}}</h1>
+    {{#if currentUser }}
+    <div class="row"
+         style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('{{event.img}}'); background-size: cover; background-repeat: no-repeat; background-position: center; color: white;">
+        <h1 class="col-xs-12">
+            {{event.title}}
+            {{#if isInRole 'event_admin,coordinator' event._id}}
+            <button class="btn btn-success event-recruit">Start recruitment</button>
+            {{/if}}
+            {{#if isInRole 'event_admin,system_admin' event._id}}
+            <button class="btn btn-warning event-admin">Admin</button>
+            {{/if}}
+            {{#if isInRole 'system_admin'}}
+            <button class="btn btn-danger event-delete">Delete</button>
+            {{/if}}
+        </h1>
+
         <div class="col-xs-12 col-md-6">
             <div class="container">
-				<h2>Most needed</h2>
-				<ul class="slot-list">
-					{{#each topSlots}}
-					    {{> Slots_item }}
-					{{/each}}
-				</ul>
-			</div>
-		</div>
+                <h2>Most needed</h2>
+                <ul class="slot-list">
+                    {{#each topSlots}}
+                    {{> Slots_item }}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
         <div class="col-xs-12 col-md-6">
             <div class="container">
-				<h2>Your schedule</h2>
+                <h2>Your schedule</h2>
                 {{#if mySlots.count}}
-				<ul class="schedule">
-					{{#each mySlots}}
-                        <li>{{slot.title.en}}</li>
-					{{/each}}
-				</ul>
+                <ul class="schedule">
+                    {{#each mySlots}}
+                    <li>{{slot.title.en}}</li>
+                    {{/each}}
+                </ul>
                 {{else}}
                 <p><em>You didn't select any tasks :( Are you sure you want to miss the experience?</em></p>
                 {{/if}}
-			</div>
-		</div>
+            </div>
+        </div>
     </div>
     {{#each taskrow in chunksOf tasks 3}}
     <div class="row">
         {{#each taskrow}}
-            {{> Tasks_item }}
+        {{> Tasks_item }}
         {{/each}}
     </div>
     {{/each}}
-	{{else}}
-	<div class="row">
-		<div class="col-xs-12 alert alert-danger">
-			Please sign in first!
-		</div>
-	</div>
-	{{/if}}
+    {{else}}
+    <div class="row">
+        <div class="col-xs-12 alert alert-danger">
+            Please sign in first!
+        </div>
+    </div>
+    {{/if}}
 </template>

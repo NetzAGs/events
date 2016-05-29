@@ -1,22 +1,10 @@
 <template name="Events_list_item">
-    <div class="row"
-         style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('{{img}}'); background-size: cover; background-repeat: no-repeat; background-position: center; color: white;">
-        <div class="col-xs-12">
+    <div class="row events_list_item"
+         style="background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('{{img}}'); background-size: cover; background-repeat: no-repeat; background-position: center; color: white;">
+        <a href="{{eventPath}}" class="col-xs-12">
             <h1>{{title}}</h1>
             <h2>{{displayDate date}}</h2>
             <p>{{desc.en}}</p>
-            <p>
-                <button class="btn btn-success event-join">Join the party!</button>
-                {{#if isInRole 'event_admin,coordinator' _id}}
-                <button class="btn btn-warning event-recruit">Start recruitment</button>
-                {{/if}}
-                {{#if isInRole 'event_admin,system_admin' _id}}
-                <button class="btn btn-danger event-admin">Admin</button>
-                {{/if}}
-                {{#if isInRole 'system_admin'}}
-                <button class="btn btn-danger event-delete">Delete</button>
-                {{/if}}
-            </p>
-        </div>
+        </a>
     </div>
 </template>
