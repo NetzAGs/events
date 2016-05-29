@@ -1,18 +1,20 @@
 <template name="Tasks_slot_volunteers">
     <h2>{{title.en}}</h2>
     {{#if volunteers.count}}
-    <table class="table">
-        <tr>
-            <th>Name</th>
-            <th>Room</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Check in</th>
-        </tr>
-        {{#each volunteer in volunteers}}
-        {{> Tasks_slot_volunteers_item volunteer=volunteer}}
-        {{/each}}
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Room</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Check in</th>
+            </tr>
+            {{#each volunteer in volunteers}}
+            {{> Tasks_slot_volunteers_item volunteer=volunteer}}
+            {{/each}}
+        </table>
+    </div>
     {{else}}
     <em>No volunteers!</em>
     {{/if}}
