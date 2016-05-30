@@ -1,6 +1,12 @@
 <template name="Tasks_volunteers">
-    <h1><a href="{{eventPath}}">{{event.title}}</a> / {{task.title.en}}</h1>
-    {{#each slots}}
-    {{> Tasks_slot_volunteers}}
-    {{/each}}
+    <div class="row">
+        <h1 class="col-xs-12"><a href="{{eventPath}}">{{event.title}}</a> / {{task.title.en}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            {{#each slots}}
+            {{> Tasks_slot_volunteers}}
+            {{/each}}
+        </div>
+    </div>
 </template>

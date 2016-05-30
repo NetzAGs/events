@@ -22,6 +22,7 @@ Accounts.ui.config({
     }, {
         fieldName: "dorm",
         fieldLabel: "Dorm",
+        class: "form-control",
         inputType: "select",
         showFieldLabel: false,
         empty: "Select dorm",
@@ -51,6 +52,22 @@ Accounts.ui.config({
         fieldName: "room",
         fieldLabel: "Room",
         inputType: "number",
+        visible: true
+    }, {
+        fieldName: "lang",
+        fieldLabel: "Prefered language",
+        class: "form-control",
+        inputType: "select",
+        showFieldLabel: false,
+        data: [{
+            id: 1,
+            label: "english",
+            value: "en"
+        }, {
+            id: 2,
+            label: "deutsch",
+            value: "de"
+        }],
         visible: true
     }]
 });

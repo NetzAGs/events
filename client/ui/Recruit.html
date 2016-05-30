@@ -1,3 +1,8 @@
 <template name="Recruit">
-    recruit
+    <div class="row">
+        <div class="col-xs-12">{{> Profile_form user=newuser}}</div>
+    </div>
+    {{#each event in events}}
+        {{> Event_select_slots selevent=event thisuser=newuser}}
+    {{/each}}
 </template>

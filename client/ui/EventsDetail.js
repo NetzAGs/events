@@ -5,6 +5,7 @@ Template.Events_detail.helpers({
     event() {
         return Events.findOne({_id: FlowRouter.getParam('_id')});
     },
+    /*
     tasks() {
         return Tasks.find({eventId: FlowRouter.getParam('_id')});
     },
@@ -15,8 +16,9 @@ Template.Events_detail.helpers({
     mySlots() {
         return Volunteers.find({userId: Meteor.userId(), 'slot.eventId': FlowRouter.getParam('_id')}, {sort: {'slot.startTime': 1}});
     }
+    */
 });
-
+/*
 Template.Events_detail.events({
     'click button.event-admin'(event) {
         const eventId = FlowRouter.getParam('_id');
@@ -33,3 +35,4 @@ Template.Events_detail.events({
         });
     },
 });
+*/

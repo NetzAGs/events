@@ -23,6 +23,14 @@ Template.registerHelper('diff', function(a, b) {
     return a - b;
 });
 
+Template.registerHelper('optionSelectedEq', function(opt, val, text) {
+    return '<option value="'+opt+'" '+(opt==val?' selected':'')+'>'+text+'</option>';
+});
+
+Template.registerHelper('selected', function(opt, val) {
+    return opt == val ? 'selected' : '';
+});
+
 Template.registerHelper('isModNotFirst', function(a, b) {
     return (a != 0 && a % b == 0);
 });

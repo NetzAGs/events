@@ -1,10 +1,22 @@
 <template name="Tasks_slot_volunteers_item">
     <tr>
-        <td>{{user.profile.name}}</td>
+        <td><input type="checkbox" class="form-control" checked="{{volunteer.checkedIn}}" id="volunteer-checked-{{volunteer._id}}"></td>
+        <td><label for="volunteer-checked-{{volunteer._id}}">{{user.profile.name}}</label></td>
         <td>{{user.profile.dorm}}{{user.profile.room}}</td>
-        <td>{{user.emails.[0].address}}</td>
-        <td>{{user.profile.phone}}</td>
-        <td><input type="checkbox" class="form-control" checked="{{volunteer.checkedIn}}"></td>
+        <td>
+            {{#if user.emails.[0].verified}}
+                <a href="mailto:{{user.emails.[0].address}}" title="Email verified">
+                    <span class="glyphicon glyphicon-ok"></span>
+                    {{user.emails.[0].address}}
+                </a>
+            {{else}}
+                <a href="mailto:{{user.emails.[0].address}}" title="Email not verified">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    {{user.emails.[0].address}}
+                </a>
+            {{/if}}
+        </td>
+        <td><a href="tel:{{user.profile.phone}}">{{user.profile.phone}}</a></td>
     </tr>
 
 </template>
