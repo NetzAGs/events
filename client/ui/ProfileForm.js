@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
 
 Template.Profile_form.events({
     'submit form.profile'(event) {
+        event.preventDefault();
         let u = {
             email: event.target.email.value,
             profile: {
@@ -13,6 +14,10 @@ Template.Profile_form.events({
                 lang: event.target.lang.value
             },
         };
-        Meteor.call('users.update', this.thisuser._id, u);
+        Meteor.call('users.update', this.thisuser._id, u, function(err, ret) {
+            if(err) {
+                bootbox.alert(err.error);
+            }
+        });
     }
 });
