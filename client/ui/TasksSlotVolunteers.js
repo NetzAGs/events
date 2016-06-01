@@ -10,6 +10,6 @@ Template.Tasks_slot_volunteers.helpers({
         });
         return Meteor.users.find({_id: {$in: userIds}}, {sort: {'profile.name': 1}});
         */
-        return Volunteers.find({'slot._id': this._id, temp: false});
+        return Volunteers.find({'slot._id': this._id, temp: {$ne: false}});
     }
 });
