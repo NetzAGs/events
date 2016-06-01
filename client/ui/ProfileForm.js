@@ -14,9 +14,11 @@ Template.Profile_form.events({
                 lang: event.target.lang.value
             },
         };
-        Meteor.call('users.update', this.thisuser._id, u, function(err, ret) {
+        Meteor.call('users.update', this.user._id, u, function(err, ret) {
             if(err) {
                 bootbox.alert(err.error);
+            } else if(ret) {
+                FlowRouter.go('recruit.user', {_id: ret});
             }
         });
     }

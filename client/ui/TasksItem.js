@@ -3,30 +3,29 @@ import { Template } from 'meteor/templating';
 
 Template.Tasks_item.helpers({
 	hasPermission() {
-		const taskId = this._id;
-		let task = Tasks.findOne({_id: taskId});
+		let task = Tasks.findOne({_id: this.task._id});
 		let perm = false;
 //FIXME
 		// dirty workaround against exception
 		try {
-			perm = (Roles.userIsInRole(Meteor.userId(), ['task_admin'], taskId) || Roles.userIsInRole(Meteor.userId(), ['system_admin', 'event_admin'], task.eventId));
+			perm = (Roles.userIsInRole(Meteor.userId(), ['task_admin'], this.task._id) || Roles.userIsInRole(Meteor.userId(), ['system_admin', 'event_admin'], task.eventId));
 		} catch(e) {
 			perm = false;
 		}
 		return perm;
 	},
 	slots() {
-		return Slots.find({taskId: this._id}, {sort: {startTime: 1}});
+		return Slots.find({taskId: this.task._id}, {sort: {startTime: 1}});
 	}
 });
 
 Template.Tasks_item.events({
     'click .task-admin'(event) {
         event.preventDefault();
-        FlowRouter.go('tasks.admin', this);
+        FlowRouter.go('tasks.admin', this.task);
     },
     'click .task-volunteers'(event) {
         event.preventDefault();
-        FlowRouter.go('tasks.volunteers', this);
+        FlowRouter.go('tasks.volunteers', this.task);
     }
 });

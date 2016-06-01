@@ -19,7 +19,7 @@ Accounts.emailTemplates.enrollAccount.text = function(user, url) {
             return "* " + vol.slot.title.en;
         }).join("\n");
         if(slots) {
-            list += evt.title.en + " (" + moment(evt.date).format("D.M.YYYY") + "):\n\n" + slots + "\n\n";
+            list += evt.title + " (" + moment(evt.date).format("D.M.YYYY") + "):\n\n" + slots + "\n\n";
         }
     });
     if(list) {

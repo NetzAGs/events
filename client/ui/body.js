@@ -20,5 +20,8 @@ Template.App_body.helpers({
             }
         }
         return true;
+    },
+    isCoordinator() {
+        return (Events.find({closed: false,_id: {$in: Roles.getGroupsForUser(Meteor.userId(), "coordinator")}}).count() > 0);
     }
 });

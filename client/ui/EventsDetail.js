@@ -3,7 +3,9 @@ import { Template } from 'meteor/templating';
 
 Template.Events_detail.helpers({
     event() {
-        return Events.findOne({_id: FlowRouter.getParam('_id')});
+        const eventId = FlowRouter.getParam('_id');
+        let event = Events.findOne({_id: eventId});
+        return event;
     },
     /*
     tasks() {

@@ -3,7 +3,6 @@ import { Template } from 'meteor/templating';
 
 Template.Admin.helpers({
     systemadmins() {
-        console.log("hi systemadmins");
         return Roles.getUsersInRole('system_admin');
     },
     autocompleteSettings() {
@@ -34,7 +33,6 @@ Template.Admin.events({
         FlowRouter.go('events.list');
     },
     'autocompleteselect #adminselect': function(event, template, doc) {
-        console.log("selected user:", doc);
         event.target.value = "";
         Meteor.call('system.makeadmin', doc._id);
     }

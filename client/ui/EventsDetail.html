@@ -1,6 +1,6 @@
 <template name="Events_detail">
     {{#if currentUser }}
-    {{> Events_select_slots user=currentUser selevent=event }}
+    {{> Events_select_slots user=currentUser selevent=event temp=false }}
     {{else}}
     <div class="row">
         <div class="col-xs-12 alert alert-danger">

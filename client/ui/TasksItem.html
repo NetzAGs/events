@@ -1,20 +1,19 @@
 <template name="Tasks_item">
     <div class="col-xs-12 col-md-4"
-        style="background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('{{img}}'); background-size: cover; background-repeat: no-repeat; background-position: center; color: white;">
-            <h2>{{title.en}}</h2>
-            <p>{{desc.en}}</p>
-            {{#if required.en}}<p><strong>Required:</strong> {{required.en}}</p>{{/if}}
-            {{#if hasPermission}}
-            <p>
-                <button class="btn btn-success task-volunteers">Volunteers</button>
-                <button class="btn btn-warning task-message">Message</button>
-                <button class="btn btn-danger task-admin">Admin</button>
-            </p>
-            {{/if}}
-            <ul class="slot-list">
-                {{#each slots}}
-                    {{> Slots_item }}
-                {{/each}}
-            </ul>
+         style="background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('{{task.img}}'); background-size: cover; background-repeat: no-repeat; background-position: center; color: white;">
+        <h2>{{task.title.en}}</h2>
+        <p>{{task.desc.en}}</p>
+        {{#if hasPermission}}
+        <p>
+        <button class="btn btn-success task-volunteers">Volunteers</button>
+        <button class="btn btn-warning task-message">Message</button>
+        <button class="btn btn-danger task-admin">Admin</button>
+        </p>
+        {{/if}}
+        <ul class="slot-list">
+            {{#each slot in slots}}
+            {{> Slots_item slot=slot uid=uid suffix="" temp=temp }}
+            {{/each}}
+        </ul>
     </div>
 </template>

@@ -12,8 +12,8 @@
             <div class="container-fluid">
                 <h2>Most needed</h2>
                 <ul class="slot-list">
-                    {{#each topSlots}}
-                    {{> Slots_item }}
+                    {{#each slot in topSlots}}
+                    {{> Slots_item slot=slot uid=user._id suffix="top" temp=temp }}
                     {{/each}}
                 </ul>
             </div>
@@ -35,8 +35,8 @@
     </div>
     {{#each taskrow in chunksOf tasks 3}}
     <div class="row row-md-eq-height">
-        {{#each taskrow}}
-        {{> Tasks_item }}
+        {{#each task in taskrow}}
+        {{> Tasks_item task=task uid=user._id temp=temp}}
         {{/each}}
     </div>
     {{/each}}

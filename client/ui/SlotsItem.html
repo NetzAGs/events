@@ -1,6 +1,6 @@
 <template name="Slots_item">
     <li class="slot-list-item {{#if disabled}}slot-disabled{{/if}}">
-        <input type="checkbox" id="slot-{{_id}}" checked="{{checked}}" disabled="{{disabled}}" class="toggle-select-slot">
-        <label for="slot-{{_id}}">{{title.en}} ({{curcount}}/{{mincap}})</label>
+        <input type="checkbox" id="slot-{{slot._id}}{{suffix}}" checked="{{checked}}" disabled="{{disabled}}" class="toggle-select-slot">
+        <label for="slot-{{slot._id}}">{{slot.title.en}} ({{slot.curcount}}/{{slot.mincap}})</label>
     </li>
 </template>

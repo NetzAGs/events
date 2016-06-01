@@ -5,6 +5,11 @@ Template.Events_admin.helpers({
     event() {
         return Events.findOne({_id: FlowRouter.getParam('_id')});
     },
+    eventPath() {
+        const eventId = FlowRouter.getParam('_id');
+        return FlowRouter.path('events.detail', {_id: eventId});
+    },  
+
     tasks() {
         return Tasks.find({eventId: FlowRouter.getParam('_id')});
     },
@@ -66,7 +71,6 @@ Template.Events_admin.events({
     'submit form.add-task'(event) {
         event.preventDefault();
         let eventId = FlowRouter.getParam('_id');
-        console.log(event);
         let newTask = {
             title: {
                 de: event.target.taskTitleDe.value,
@@ -89,7 +93,9 @@ Template.Event_admin_list_item.events({
                 Meteor.call('events.removeadmin', thisUser._id, eventId);
             }
         });
-    },
+    }
+});
+Template.Coordinator_list_item.events({
     'click .coordinator-remove'(event) {
         let thisUser = this;
         let eventId = FlowRouter.getParam('_id');

@@ -14,7 +14,6 @@ Template.Tasks_admin.helpers({
     hasPermission() {
         const taskId = FlowRouter.getParam('_id');
         let task = Tasks.findOne({_id: taskId});
-        console.log("taskId:", taskId, "task:", task);
         let perm = false;
         // dirty workaround against exception
         try {
@@ -75,7 +74,6 @@ Template.Tasks_admin.events({
         event.preventDefault();
         const taskId = FlowRouter.getParam('_id');
         let task = Tasks.findOne({_id: taskId});
-        console.log("task:", task);
         let startMom = moment(event.target.slotStartTime.value);
         let endMom = moment(event.target.slotStartTime.value);
         endMom.add(moment.duration(event.target.slotDuration.value));
@@ -95,7 +93,6 @@ Template.Tasks_admin.events({
             curcount: 0,
             curcap: parseInt(event.target.slotMincap.value),
         };
-        console.log("newSlot:", newSlot);
         Meteor.call('slots.insert', newSlot);
     }
 });

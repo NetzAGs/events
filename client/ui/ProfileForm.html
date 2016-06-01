@@ -1,28 +1,28 @@
 <template name="Profile_form">
     <form class="profile">
         <div class="form-group">
-            <label for="profile-form-{{thisuser._id}}-name">Name</label>
-            <input  id="profile-form-{{thisuser._id}}-name" type="text" class="form-control" placeholder="Name" name="name" value="{{thisuser.profile.name}}">
-            <label for="profile-form-{{thisuser._id}}-email">Email</label>
-            <input  id="profile-form-{{thisuser._id}}-email" type="email" class="form-control" placeholder="Email" name="email" value="{{thisuser.emails.[0].address}}">
-            <label for="profile-form-{{thisuser._id}}-phone">Phone</label>
-            <input  id="profile-form-{{thisuser._id}}-phone" type="tel" class="form-control" placeholder="Phone" name="phone" value="{{thisuser.profile.phone}}">
-            <label for="profile-form-{{thisuser._id}}-dorm">Dorm</label>
-            <select id="profile-form-{{thisuser._id}}-dorm" class="form-control" name="dorm">
-                <option value="weh" {{selected "weh" thisuser.profile.dorm}}>WEH</option>
-                <option value="oih" {{selected "oih" thisuser.profile.dorm}}>OIH</option>
-                <option value="oph" {{selected "oph" thisuser.profile.dorm}}>OPH</option>
-                <option value="tvk" {{selected "tvk" thisuser.profile.dorm}}>TvK</option>
-                <option value="extern" {{selected "extern" thisuser.profile.dorm}}>Extern</option>
+            <label for="profile-form-{{user._id}}-name">Name</label>
+            <input  id="profile-form-{{user._id}}-name" type="text" class="form-control" placeholder="Name" name="name" value="{{user.profile.name}}">
+            <label for="profile-form-{{user._id}}-email">Email</label>
+            <input  id="profile-form-{{user._id}}-email" type="email" class="form-control" placeholder="Email" name="email" value="{{user.emails.[0].address}}">
+            <label for="profile-form-{{user._id}}-phone">Phone</label>
+            <input  id="profile-form-{{user._id}}-phone" type="tel" class="form-control" placeholder="Phone" name="phone" value="{{user.profile.phone}}">
+            <label for="profile-form-{{user._id}}-dorm">Dorm</label>
+            <select id="profile-form-{{user._id}}-dorm" class="form-control" name="dorm">
+                <option value="weh" {{selected "weh" user.profile.dorm}}>WEH</option>
+                <option value="oih" {{selected "oih" user.profile.dorm}}>OIH</option>
+                <option value="oph" {{selected "oph" user.profile.dorm}}>OPH</option>
+                <option value="tvk" {{selected "tvk" user.profile.dorm}}>TvK</option>
+                <option value="extern" {{selected "extern" user.profile.dorm}}>Extern</option>
             </select>
-            <label for="profile-form-{{thisuser._id}}-room">Room</label>
-            <input  id="profile-form-{{thisuser._id}}-room" type="number" class="form-control" placeholder="Room" name="room" value="{{thisuser.profile.room}}">
-            <label for="profile-form-{{thisuser._id}}-lang">Language</label>
-            <select id="profile-form-{{thisuser._id}}-lang" class="form-control" name="lang">
-                <option value="en" {{selected "en" thisuser.profile.lang}}>english</option>
-                <option value="de" {{selected "de" thisuser.profile.lang}}>german</option>
+            <label for="profile-form-{{user._id}}-room">Room</label>
+            <input  id="profile-form-{{user._id}}-room" type="number" class="form-control" placeholder="Room" name="room" value="{{user.profile.room}}">
+            <label for="profile-form-{{user._id}}-lang">Language</label>
+            <select id="profile-form-{{user._id}}-lang" class="form-control" name="lang">
+                <option value="en" {{selected "en" user.profile.lang}}>english</option>
+                <option value="de" {{selected "de" user.profile.lang}}>german</option>
             </select>
+            <button class="form-control btn btn-success" type="submit">{{#if temp}}Create{{else}}Update{{/if}}</button>
         </div>
-        <button class="form-control btn btn-success" type="submit">Update</button>
     </form>
 </template>
