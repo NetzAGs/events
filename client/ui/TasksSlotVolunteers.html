@@ -1,14 +1,14 @@
 <template name="Tasks_slot_volunteers">
-    <h2>{{title.en}} ({{curcount}}/{{mincap}}+{{diff maxcap mincap}})</h2>
+    <h2>{{lang title.de title.en}} ({{curcount}}/{{mincap}}+{{diff maxcap mincap}})</h2>
     {{#if volunteers.count}}
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <th>Check</th>
                 <th>Name</th>
-                <th>Room</th>
+                <th>{{lang "Zimmer" "Room"}}</th>
                 <th>Email</th>
-                <th>Phone</th>
+                <th>{{lang "Telefon" "Phone"}}</th>
             </thead>
             <tbody>
             {{#each volunteer in volunteers}}
@@ -18,6 +18,6 @@
         </table>
     </div>
     {{else}}
-    <em>No volunteers!</em>
+    <em>{{lang "Keine Helfer!" "No volunteers!"}}</em>
     {{/if}}
 </template>

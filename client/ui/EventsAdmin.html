@@ -6,35 +6,35 @@
         <div class="col-sm-4">
             <form class="event-modify">
                 <div class="form-group">
-                    <label for="eventTitle">Title</label>
-                    <input type="text" class="form-control" id="eventTitle" name="eventTitle" placeholder="Title" value="{{event.title}}">
+                    <label for="eventTitle">{{lang "Titel" "Title"}}</label>
+                    <input type="text" class="form-control" id="eventTitle" name="eventTitle" placeholder="{{lang "Titel" "Title"}}" value="{{event.title}}">
                 </div>
                 <div class="form-group">
-                    <label for="eventDate">Date (YYYY-MM-DD)</label>
-                    <input type="date" class="form-control" id="eventDate" name="eventDate" placeholder="Date" value="{{inputDate event.date}}">
+                    <label for="eventDate">{{lang "Datum (JJJJ-MM-TT)" "Date (YYYY-MM-DD)"}}</label>
+                    <input type="date" class="form-control" id="eventDate" name="eventDate" placeholder="{{lang "Datum" "Date"}}" value="{{inputDate event.date}}">
                 </div>
                 <div class="form-group">
-                    <label for="eventDescDe">Description (german)</label>
-                    <textarea class="form-control" id="eventDescDe" name="eventDescDe" rows=3 placeholder="Description (german)">{{event.desc.de}}</textarea>
+                    <label for="eventDescDe">{{lang "Beschreibung (deutsch)" "Description (german)"}}</label>
+                    <textarea class="form-control" id="eventDescDe" name="eventDescDe" rows=3 placeholder="{{lang "Beschreibung (deutsch)" "Description (german)"}}">{{event.desc.de}}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="eventDescEn">Description (english)</label>
-                    <textarea class="form-control" id="eventDescEn" name="eventDescEn" rows=3 placeholder="Description (english)">{{event.desc.en}}</textarea>
+                    <label for="eventDescEn">{{lang "Beschreibung (englisch)" "Description (english)"}}</label>
+                    <textarea class="form-control" id="eventDescEn" name="eventDescEn" rows=3 placeholder="{{lang "Beschreibung (englisch)" "Description (english)"}}">{{event.desc.en}}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="eventImg">Image</label>
-                    <input type="text" class="form-control" id="eventImg" name="eventImg" placeholder="Image" value="{{event.img}}">
+                    <label for="eventImg">{{lang "Bannerfoto" "Image"}}</label>
+                    <input type="text" class="form-control" id="eventImg" name="eventImg" placeholder="{{lang "Bannerfoto" "Image"}}" value="{{event.img}}">
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success">{{lang "Speichern" "Submit"}}</button>
             </form>
         </div>
         <div class="col-sm-4">
-            <h2>Event admins</h2>
-            <p>Event admins can ...</p>
+            <h2>{{lang "Veranstaltungsadmins" "Event admins"}}</h2>
+            <p>{{lang "Veranstaltungsadmins können ..." "Event admins can ..."}}</p>
             <ul>
-                <li>manage the event, i.e. change settings</li>
-                <li>create tasks</li>
-                <li>set event and task admins and coordinators</li>
+                <li>{{lang "die Veranstaltung verwalten, d.h. Einstellungen ändern" "manage the event, i.e. change settings"}}</li>
+                <li>{{lang "Aufgabenbereiche anlegen" "create tasks"}}</li>
+                <li>{{lang "andere Benutzer als Koordinator oder Veranstaltungs- und Aufgabenadmin hinzufügen" "set event and task admins and coordinators"}}</li>
             </ul>
             {{> inputAutocomplete settings=autocompleteSettings id="event-admin-select" class="form-control input-xlarge" placeholder="Search for users..."}}
             <ul class="event-admins">
@@ -42,10 +42,10 @@
                 {{> Event_admin_list_item }}
                 {{/each}}
             </ul>
-            <h2>Event coordinators</h2>
-            <p>Event coordinators can ...</p>
+            <h2>{{lang "Koordinatoren" "Event coordinators"}}</h2>
+            <p>{{lang "Koordinatoren können ..." "Event coordinators can ..."}}</p>
             <ul>
-                <li>add and list volunteers</li>
+                <li>{{lang "Helfer hinzufügen und auflisten" "add and list volunteers"}}</li>
             </ul>
             {{> inputAutocomplete settings=autocompleteSettings id="coordinator-select" class="form-control input-xlarge" placeholder="Search for users..."}}
             <ul class="coordinators">
@@ -55,13 +55,13 @@
             </ul>
         </div>
         <div class="col-sm-4">
-            <h2>Tasks</h2>
+            <h2>{{lang "Aufgabenbereiche" "Tasks"}}</h2>
             <form class="add-task form-inline">
                 <div class="form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="taskTitleDe" placeholder="Titel (deutsch)">
-                    <input type="text" class="form-control" name="taskTitleEn" placeholder="Title (english)">
-                    <button type="submit" class="btn btn-success add-task-submit">Add</button>
+                    <input type="text" class="form-control" name="taskTitleDe" placeholder="{{lang "Titel (deutsch)" "Title (german)"}}">
+                    <input type="text" class="form-control" name="taskTitleEn" placeholder="{{lang "Titel (englisch)" "Title (english)"}}">
+                    <button type="submit" class="btn btn-success add-task-submit">{{lang "Hinzufügen" "Add"}}</button>
                 </div>
                 </div>
             </form>

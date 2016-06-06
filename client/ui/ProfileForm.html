@@ -5,9 +5,9 @@
             <input  id="profile-form-{{user._id}}-name" type="text" class="form-control" placeholder="Name" name="name" value="{{user.profile.name}}">
             <label for="profile-form-{{user._id}}-email">Email</label>
             <input  id="profile-form-{{user._id}}-email" type="email" class="form-control" placeholder="Email" name="email" value="{{user.emails.[0].address}}">
-            <label for="profile-form-{{user._id}}-phone">Phone</label>
-            <input  id="profile-form-{{user._id}}-phone" type="tel" class="form-control" placeholder="Phone" name="phone" value="{{user.profile.phone}}">
-            <label for="profile-form-{{user._id}}-dorm">Dorm</label>
+            <label for="profile-form-{{user._id}}-phone">{{lang "Telefon" "Phone"}}</label>
+            <input  id="profile-form-{{user._id}}-phone" type="tel" class="form-control" placeholder="{{lang "Telefon" "Phone"}}" name="phone" value="{{user.profile.phone}}">
+            <label for="profile-form-{{user._id}}-dorm">{{lang "Wohnheim" "Dorm"}}</label>
             <select id="profile-form-{{user._id}}-dorm" class="form-control" name="dorm">
                 <option value="weh" {{selected "weh" user.profile.dorm}}>WEH</option>
                 <option value="oih" {{selected "oih" user.profile.dorm}}>OIH</option>
@@ -15,14 +15,14 @@
                 <option value="tvk" {{selected "tvk" user.profile.dorm}}>TvK</option>
                 <option value="extern" {{selected "extern" user.profile.dorm}}>Extern</option>
             </select>
-            <label for="profile-form-{{user._id}}-room">Room</label>
-            <input  id="profile-form-{{user._id}}-room" type="number" class="form-control" placeholder="Room" name="room" value="{{user.profile.room}}">
-            <label for="profile-form-{{user._id}}-lang">Language</label>
+            <label for="profile-form-{{user._id}}-room">{{lang "Zimmer" "Room"}}</label>
+            <input  id="profile-form-{{user._id}}-room" type="number" class="form-control" placeholder="{{lang "Zimmer" "Room"}}" name="room" value="{{user.profile.room}}">
+            <label for="profile-form-{{user._id}}-lang">{{lang "Sprache" "Language"}}</label>
             <select id="profile-form-{{user._id}}-lang" class="form-control" name="lang">
-                <option value="en" {{selected "en" user.profile.lang}}>english</option>
-                <option value="de" {{selected "de" user.profile.lang}}>german</option>
+                <option value="en" {{selected "en" user.profile.lang}}>{{lang "englisch" "english"}}</option>
+                <option value="de" {{selected "de" user.profile.lang}}>{{lang "deutsch" "german"}}</option>
             </select>
-            <button class="form-control btn btn-success" type="submit">{{#if temp}}Create{{else}}Update{{/if}}</button>
+            <button class="form-control btn btn-success" type="submit">{{#if temp}}{{lang "Erstellen" "Create"}}{{else}}{{lang "Änderungen speichern" "Update"}}{{/if}}</button>
         </div>
     </form>
 </template>

@@ -1,41 +1,41 @@
 <template name="Tasks_admin">
     {{#if currentUser }}
     {{#if hasPermission }}
-    <h1><a href="{{eventPath}}">{{event.title}}</a> / {{task.title.en}}</h1>
+    <h1><a href="{{eventPath}}">{{event.title}}</a> / {{lang task.title.de task.title.en}}</h1>
     <div class="row">
         <div class="col-sm-4">
             <form class="task-modify">
                 <div class="form-group">
-                    <label for="taskTitleDe">Title (german)</label>
-                    <input type="text" class="form-control" id="taskTitleDe" name="taskTitleDe" placeholder="Title (german)" value="{{task.title.de}}">
+                    <label for="taskTitleDe">{{lang "Titel (deutsch)" "Title (german)"}}</label>
+                    <input type="text" class="form-control" id="taskTitleDe" name="taskTitleDe" placeholder="{{lang "Titel (deutsch)" "Title (german)"}}" value="{{task.title.de}}">
                 </div>
                 <div class="form-group">
-                    <label for="taskTitleEn">Title (english)</label>
-                    <input type="text" class="form-control" id="taskTitleEn" name="taskTitleEn" placeholder="Title (english)" value="{{task.title.en}}">
+                    <label for="taskTitleEn">{{lang "Titel (englisch)" "Title (english)"}}</label>
+                    <input type="text" class="form-control" id="taskTitleEn" name="taskTitleEn" placeholder="{{lang "Titel (englisch)" "Title (english)"}}" value="{{task.title.en}}">
                 </div>
                 <div class="form-group">
-                    <label for="taskDescDe">Description (german)</label>
-                    <textarea rows=3 class="form-control" id="taskDescDe" name="taskDescDe" placeholder="Description (german)">{{task.desc.de}}</textarea>
+                    <label for="taskDescDe">{{lang "Beschreibung (deutsch)" "Description (german)"}}</label>
+                    <textarea rows=3 class="form-control" id="taskDescDe" name="taskDescDe" placeholder="{{lang "Beschreibung (deutsch)" "Description (german)"}}">{{task.desc.de}}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="taskDescEn">Description (english)</label>
-                    <textarea rows=3 class="form-control" id="taskDescEn" name="taskDescEn" placeholder="Description (english)">{{task.desc.en}}</textarea>
+                    <label for="taskDescEn">{{lang "Beschreibung (englisch)" "Description (english)"}}</label>
+                    <textarea rows=3 class="form-control" id="taskDescEn" name="taskDescEn" placeholder="{{lang "Beschreibung (englisch)" "Description (english)"}}">{{task.desc.en}}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="taskImg">Image</label>
-                    <input type="text" class="form-control" id="taskImg" name="taskImg" placeholder="Image" value="{{task.img}}">
+                    <label for="taskImg">{{lang "Bannerfoto" "Image"}}</label>
+                    <input type="text" class="form-control" id="taskImg" name="taskImg" placeholder="{{lang "Bannerfoto" "Image"}}" value="{{task.img}}">
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success">{{lang "Speichern" "Submit"}}</button>
             </form>
         </div>
         <div class="col-sm-4">
-            <h2>Task admins</h2>
-            <p>Task admins can ...</p>
+            <h2>{{lang "Aufgabenadmins" "Task admins"}}</h2>
+            <p>{{lang "Aufgabenadmins können ..." "Task admins can ..."}}</p>
             <ul>
-                <li>manage the task, i.e. change settings</li>
-                <li>create and modify time slots</li>
-                <li>set task admins</li>
-                <li>manage volunteers</li>
+                <li>{{lang "den Aufgabenbereich verwalten, d.h. Einstelungen ändern" "manage the task, i.e. change settings"}}</li>
+                <li>{{lang "Schichten anlegen und bearbeiten" "create and modify time slots"}}</li>
+                <li>{{lang "weitere Aufgabenadmins hinzufügen" "set task admins"}}</li>
+                <li>{{lang "die Helfer verwalten" "manage volunteers"}}</li>
             </ul>
             {{> inputAutocomplete settings=autocompleteSettings id="task-admin-select" class="form-control input-xlarge" placeholder="Search for users..."}}
             <ul class="task-admins">
@@ -49,15 +49,15 @@
             <h2>Time slots</h2>
             <form class="create-slot">
                 <div class="form-group">
-                    <label for="createSlotStartTime">Start time</label>
+                    <label for="createSlotStartTime">{{lang "Startzeit" "Start time"}}</label>
                     <input type="datetime" class="form-control" id="createSlotStartTime" name="slotStartTime" value="{{fmtdatetime event.date}}">
-                    <label for="createSlotDuration">Duration (h:mm)</label>
+                    <label for="createSlotDuration">{{lang "Dauer (h:mm)" "Duration (h:mm)"}}</label>
                     <input type="time" class="form-control" name="slotDuration" id="createSlotDuration" value="02:00">
-                    <label for="createSlotMincap">Volunteers</label>
+                    <label for="createSlotMincap">{{lang "Helfer" "Volunteers"}}</label>
                     <input type="number" class="form-control" id="createSlotMincap" name="slotMincap" value="5">
-                    <label for="createSlotBuffer">Buffer</label>
+                    <label for="createSlotBuffer">{{lang "Puffer" "Buffer"}}</label>
                     <input type="number" class="form-control" id="createSlotBuffer" name="slotBuffer" value="0">
-                    <button type="submit" class="btn btn-success">Create</button>
+                    <button type="submit" class="btn btn-success">{{lang "Erstellen" "Create"}}</button>
                 </div>
             </form>
             <div class="slots">

@@ -20,9 +20,9 @@
                             <li><a href="/admin">Admin</a></li>
                         {{/if}}
                         {{#if isCoordinator}}
-                            <li><a href="/recruit">Recruit</a></li>
+                        <li><a href="/recruit">{{lang "Helfersuche" "Recruit"}}</a></li>
                         {{/if}}
-                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/profile">{{lang "Profil" "Profile"}}</a></li>
                     {{/if}}
                 </ul>
             </div>
@@ -30,7 +30,7 @@
     </nav>
     <div class="container-fluid">
         {{#if userNotVerified }}
-            <div class="row alert alert-danger">Please verify your email address!</div>
+        <div class="row alert alert-danger">{{lang "Bitte bestätige deine E-Mail-Adresse!" "Please verify your email address!"}}</div>
         {{/if}}
         {{> Template.dynamic template=main data=data}}
     </div>

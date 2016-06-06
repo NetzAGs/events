@@ -19,6 +19,13 @@ Template.registerHelper('fmtdatetime', function(date) {
     }
 });
 
+Template.registerHelper('lang', function(de, en) {
+    if(Meteor.user().profile.lang && Meteor.user().profile.lang == "de") {
+        return de;
+    }
+    return en;
+});
+
 Template.registerHelper('diff', function(a, b) {
     return a - b;
 });

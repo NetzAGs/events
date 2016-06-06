@@ -35,7 +35,7 @@ Template.Events_admin.helpers({
 Template.Events_admin.events({
     'click .event-close': function(event) {
         event.preventDefault();
-        bootbox.confirm("Are you sure you want to close this event? It will no longe be listed in the events list!", function(conf) {
+        bootbox.confirm("Are you sure you want to close this event? It will no longer be listed in the events list!", function(conf) {
             if(conf) {
                 let eventId = FlowRouter.getParam('_id');
                 Events.update({_id: eventId}, {$set: {closed: true}});

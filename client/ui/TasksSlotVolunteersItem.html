@@ -5,12 +5,12 @@
         <td>{{user.profile.dorm}}{{user.profile.room}}</td>
         <td>
             {{#if user.emails.[0].verified}}
-                <a href="mailto:{{user.emails.[0].address}}" title="Email verified">
+            <a href="mailto:{{user.emails.[0].address}}" title="{{lang "E-Mail bestätigt" "Email verified"}}">
                     <span class="glyphicon glyphicon-ok"></span>
                     {{user.emails.[0].address}}
                 </a>
             {{else}}
-                <a href="mailto:{{user.emails.[0].address}}" title="Email not verified">
+            <a href="mailto:{{user.emails.[0].address}}" title="{{lang "E-Mail nicht bestätigt" "Email not verified"}}">
                     <span class="glyphicon glyphicon-remove"></span>
                     {{user.emails.[0].address}}
                 </a>
