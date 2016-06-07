@@ -36,3 +36,8 @@ body {
 ul.slot-list {
     list-style-type: none;
 }
+
+input.slot-volunteer-checkin {
+    width: 2em;
+    height: 2em;
+}

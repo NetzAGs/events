@@ -1,6 +1,6 @@
 <template name="Tasks_slot_volunteers_item">
     <tr>
-        <td><input type="checkbox" class="form-control" checked="{{volunteer.checkedIn}}" id="volunteer-checked-{{volunteer._id}}"></td>
+        <td><input type="checkbox" class="slot-volunteer-checkin" checked="{{volunteer.checkedIn}}" id="volunteer-checked-{{volunteer._id}}"></td>
         <td><label for="volunteer-checked-{{volunteer._id}}">{{user.profile.name}}</label></td>
         <td>{{user.profile.dorm}}{{user.profile.room}}</td>
         <td>
@@ -17,6 +17,7 @@
             {{/if}}
         </td>
         <td><a href="tel:{{user.profile.phone}}">{{user.profile.phone}}</a></td>
+        <td>{{user.profile.lang}}</td>
     </tr>
 
 </template>
