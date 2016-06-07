@@ -18,6 +18,9 @@ Template.Events_detail.events({
     'click button.event-admin'(event) {
         FlowRouter.go('events.admin', {_id: this.selevent._id});
     },  
+    'click button.event-volunteers'(event) {
+        FlowRouter.go('events.volunteers', {_id: this.selevent._id});
+    },  
     'click .event-delete': function(event) {
         event.preventDefault();
         const eventId = this.selevent._id;

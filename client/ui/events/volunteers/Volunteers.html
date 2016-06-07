@@ -1,0 +1,35 @@
+<template name="Volunteers">
+    <h1><a href="{{pathFor 'events.detail' _id=event._id}}">{{event.title}}</a> {{lang "Helfer" "Volunteers"}}</h1>
+    <div>
+        <button class="btn {{btnclass "all"}} select-dorm">{{lang "Alle" "All"}}</button>
+        <button class="btn {{btnclass "weh"}} select-dorm" data-dorm="weh">WEH</button>
+        <button class="btn {{btnclass "oih"}} select-dorm" data-dorm="oih">OIH</button>
+        <button class="btn {{btnclass "oph"}} select-dorm" data-dorm="oph">OPH</button>
+        <button class="btn {{btnclass "tvk"}} select-dorm" data-dorm="tvk">TvK</button>
+        <button class="btn {{btnclass "extern"}} select-dorm" data-dorm="extern">Extern</button>
+    </div>
+    {{#if volunteers.count}}
+    <p>{{volunteers.count}} {{lang "Helfer" "Volunteers"}}</p>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <th>Name</th>
+                <th>{{lang "Zimmer" "Room"}}</th>
+                <th>Email</th>
+                <th>{{lang "Telefon" "Phone"}}</th>
+            </thead>
+            <tbody>
+                {{#each volunteer in volunteers}}
+                    {{#if dorm}}
+                        {{> Volunteers_item dorm=false user=volunteer}}
+                    {{else}}
+                        {{> Volunteers_item dorm=true user=volunteer}}
+                    {{/if}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    {{else}}
+    <em>{{lang "Keine Helfer!" "No volunteers!"}}</em>
+    {{/if}}
+</template>

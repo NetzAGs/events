@@ -27,3 +27,4 @@ momentjs:moment
 mizzao:bootboxjs
 mizzao:autocomplete
 random
+arillo:flow-router-helpers

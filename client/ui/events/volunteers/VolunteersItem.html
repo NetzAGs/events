@@ -1,0 +1,20 @@
+<template name="Volunteers_item">
+    <tr>
+        <td><a href="{{pathFor 'recruit.user' _id=user._id}}">{{user.profile.name}}</a></td>
+        <td>{{#if dorm}}{{user.profile.dorm}}{{/if}}{{user.profile.room}}</td>
+        <td>
+            {{#if user.emails.[0].verified}}
+            <a href="mailto:{{user.emails.[0].address}}" title="{{lang "E-Mail bestätigt" "Email verified"}}">
+                <span class="glyphicon glyphicon-ok"></span>
+                {{user.emails.[0].address}}
+            </a>
+            {{else}}
+            <a href="mailto:{{user.emails.[0].address}}" title="{{lang "E-Mail nicht bestätigt" "Email not verified"}}">
+                <span class="glyphicon glyphicon-remove"></span>
+                {{user.emails.[0].address}}
+            </a>
+            {{/if}}
+        </td>
+        <td><a href="tel:{{user.profile.phone}}">{{user.profile.phone}}</a></td>
+    </tr>
+</template>

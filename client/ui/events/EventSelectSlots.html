@@ -3,6 +3,9 @@
          style="background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('{{selevent.img}}'); background-size: cover; background-repeat: no-repeat; background-position: center; color: white;">
         <h1 class="col-xs-12">
             {{selevent.title}} ({{displayDate selevent.date}})
+            {{#if isInRole 'coordinator,system_admin' selevent._id}}
+            <button class="btn btn-success event-volunteers">{{lang "Helfer" "Volunteers"}}</button>
+            {{/if}}
             {{#if isInRole 'event_admin,system_admin' selevent._id}}
             <button class="btn btn-warning event-admin">Admin</button>
             {{/if}}
