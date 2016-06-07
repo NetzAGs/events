@@ -27,5 +27,9 @@ Template.Tasks_item.events({
     'click .task-volunteers'(event) {
         event.preventDefault();
         FlowRouter.go('tasks.volunteers', this.task);
+    },
+    'click .task-message'(event) {
+        event.preventDefault();
+        FlowRouter.go('tasks.message', this.task);
     }
 });

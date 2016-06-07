@@ -17,8 +17,8 @@ Template.Task_admin_slot_list_item.events({
             mincap: parseInt(event.target.slotMincap.value),
             maxcap: parseInt(event.target.slotMincap.value) + parseInt(event.target.slotBuffer.value),
         };
-        let slot = Slots.find({_id: this._id});
-        changedSlot.curcap -= (slot.mincap - changedSlot.mincap);
+        //let slot = Slots.find({_id: this._id});
+        //changedSlot.curcap -= (slot.mincap - changedSlot.mincap);
         Meteor.call('slots.update', this._id, changedSlot);
     },
     'click .slot-remove'(event) {

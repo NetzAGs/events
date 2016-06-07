@@ -32,3 +32,7 @@ body {
     -moz-box-shadow: inset 0px 0px 50px 0px rgba(0,0,0,0.75);
     box-shadow: inset 0px 0px 50px 0px rgba(0,0,0,0.75);
 }
+
+ul.slot-list {
+    list-style-type: none;
+}
