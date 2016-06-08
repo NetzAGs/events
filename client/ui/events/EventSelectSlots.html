@@ -26,7 +26,7 @@
                 <h2>{{lang "Dein Plan" "Your schedule"}}</h2>
                 {{#if mySlots.count}}
                 <ul class="schedule">
-                    {{#each mySlots}}
+                    {{#each slot in mySlots}}
                     <li>{{lang slot.title.de slot.title.en}}</li>
                     {{/each}}
                 </ul>

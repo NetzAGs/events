@@ -10,7 +10,8 @@ Template.Events_select_slots.helpers({
         return Slots.find({eventId: this.selevent._id, curcap: {$gt: 0}}, {sort: {curcap: -1}, limit: lim});
     },
     mySlots() {
-        return Volunteers.find({userId: this.user._id, 'slot.eventId': this.selevent._id}, {sort: {'slot.startTime': 1}});
+        let slotIds = Volunteers.find({userId: this.user._id, 'slot.eventId': this.selevent._id}).map(function(vol) { return vol.slot._id; });
+        return Slots.find({_id: {$in: slotIds}}, {sort: {startTime: 1}});
     }
 });
 

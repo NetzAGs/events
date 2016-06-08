@@ -3,10 +3,48 @@
         <h1 class="col-xs-12"><a href="{{eventPath}}">{{event.title}}</a> / {{lang task.title.de task.title.en}}</h1>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            {{#each slots}}
-            {{> Tasks_slot_volunteers}}
-            {{/each}}
-        </div>
+        <p class="col-xs-12">
+        <em>{{lang "Bitte deutschen UND englischen Text ausfüllen, da die Helfer jeweils nur eine Version bekommen!" "Please fill out the german AND english text, because volunteers only get one version!"}}</em>
+        </p>
     </div>
+    <form class="sendTaskMessage">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="taskMsgTitleDe">{{lang "Betreff (deutsch)" "Subject (german)"}}</label>
+                <input type="text" class="form-control" id="taskMsgTitleDe" name="taskMsgTitleDe" placeholder="{{lang "Betreff (deutsch)" "Subject (german)"}}">
+                <label for="taskMsgDe">{{lang "Nachricht (deutsch)" "Message (german)"}}</label>
+                <textarea class="form-control" id="taskMsgDe" name="taskMsgDe" rows=5 placeholder="{{lang "Nachricht (deutsch)" "Message (german)"}}">Liebe Helfer ...</textarea>
+            </div>
+            <div class="col-md-6">
+                <label for="taskMsgTitleEn">{{lang "Betreff (englisch)" "Subject (english)"}}</label>
+                <input type="text" class="form-control" id="taskMsgTitleEn" name="taskMsgTitleEn" placeholder="{{lang "Betreff (englisch)" "Subject (english)"}}">
+                <label for="taskMsgEn">{{lang "Nachricht (englisch)" "Message (english)"}}</label>
+                <textarea class="form-control" id="taskMsgEn" name="taskMsgEn" rows=5 placeholder="{{lang "Nachricht (englisch)" "Message (english)"}}">Dear volunteers ...</textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{{lang "Empfänger" "Recipients"}}</h2>
+                <ul class="slot-list recipients-list">
+                    <li>
+                        <input type="checkbox" id="taskMsgAll" class="task-msg-all">
+                        <label for="taskMsgAll">{{lang "Alle auswählen" "Select all"}}</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="taskMsgTaskadmins" class="task-msg-taskadmins" checked="checked">
+                        <label for="taskMsgTaskadmins">{{lang "Aufgabenadmins" "Task admins"}}</label>
+                    </li>
+                    {{#each slot in slots}}
+                    <li>
+                        <input type="checkbox" id="taskMsgSlot-{{slot._id}}" class="task-msg-slot" data-slotid="{{slot._id}}">
+                        <label for="taskMsgSlot-{{slot._id}}">{{lang slot.title.de slot.title.en}}</label>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <input type="submit" class="btn btn-primary" value="{{lang "Senden" "Send"}}">
+            </div>
+        </div>
+    </form>
 </template>
