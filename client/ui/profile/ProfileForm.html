@@ -9,11 +9,11 @@
             <input  id="profile-form-{{user._id}}-phone" type="tel" class="form-control" placeholder="{{lang "Telefon" "Phone"}}" name="phone" value="{{user.profile.phone}}">
             <label for="profile-form-{{user._id}}-dorm">{{lang "Wohnheim" "Dorm"}}</label>
             <select id="profile-form-{{user._id}}-dorm" class="form-control" name="dorm">
-                <option value="weh" {{selected "weh" user.profile.dorm}}>WEH</option>
-                <option value="oih" {{selected "oih" user.profile.dorm}}>OIH</option>
-                <option value="oph" {{selected "oph" user.profile.dorm}}>OPH</option>
-                <option value="tvk" {{selected "tvk" user.profile.dorm}}>TvK</option>
-                <option value="extern" {{selected "extern" user.profile.dorm}}>Extern</option>
+                <option value="weh" {{selected "weh" user.profile.dorm currentUser.profile.dorm}}>WEH</option>
+                <option value="oih" {{selected "oih" user.profile.dorm currentUser.profile.dorm}}>OIH</option>
+                <option value="oph" {{selected "oph" user.profile.dorm currentUser.profile.dorm}}>OPH</option>
+                <option value="tvk" {{selected "tvk" user.profile.dorm currentUser.profile.dorm}}>TvK</option>
+                <option value="extern" {{selected "extern" user.profile.dorm currentUser.profile.dorm}}>Extern</option>
             </select>
             <label for="profile-form-{{user._id}}-room">{{lang "Zimmer" "Room"}}</label>
             <input  id="profile-form-{{user._id}}-room" type="number" class="form-control" placeholder="{{lang "Zimmer" "Room"}}" name="room" value="{{user.profile.room}}">

@@ -18,7 +18,27 @@ Template.Profile_form.events({
             if(err) {
                 bootbox.alert(err.error);
             } else if(ret) {
-                FlowRouter.go('recruit.user', {_id: ret});
+                //FlowRouter.go('recruit.user', {_id: ret});
+                bootbox.dialog({
+                    message: (Meteor.user().profile.lang == "de" ? "Neuer Helfer erfolgreich eingetragen!" : "Successfully added new volunteer!"),
+                    title: "",
+                    buttons: {
+                        modify: {
+                            label: (Meteor.user().profile.lang == "de" ? "Ändern" : "Modify"),
+                            className: "btn-warning",
+                            callback: function() {
+                                FlowRouter.go('recruit.user', {_id: ret});
+                            }
+                        },
+                        next: {
+                            label: (Meteor.user().profile.lang == "de" ? "Nächster Helfer" : "Next volunteer"),
+                            className: "btn-success",
+                            callback: function() {
+                                FlowRouter.go('recruit');
+                            }
+                        }
+                    }
+                });
             }
         });
     }

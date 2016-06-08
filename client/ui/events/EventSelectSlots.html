@@ -4,10 +4,10 @@
         <h1 class="col-xs-12">
             {{selevent.title}} ({{displayDate selevent.date}})
             {{#if isInRole 'coordinator,system_admin' selevent._id}}
-            <button class="btn btn-success event-volunteers">{{lang "Helfer" "Volunteers"}}</button>
+            <a class="btn btn-success event-volunteers" href="{{pathFor 'events.volunteers' _id=selevent._id}}">{{lang "Helfer" "Volunteers"}}</a>
             {{/if}}
             {{#if isInRole 'event_admin,system_admin' selevent._id}}
-            <button class="btn btn-warning event-admin">Admin</button>
+            <a class="btn btn-warning event-admin" href="{{pathFor 'events.admin' _id=selevent._id}}">Admin</a>
             {{/if}}
         </h1>
 

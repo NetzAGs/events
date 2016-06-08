@@ -34,8 +34,12 @@ Template.registerHelper('optionSelectedEq', function(opt, val, text) {
     return '<option value="'+opt+'" '+(opt==val?' selected':'')+'>'+text+'</option>';
 });
 
-Template.registerHelper('selected', function(opt, val) {
-    return opt == val ? 'selected' : '';
+Template.registerHelper('selected', function(opt, val, val2) {
+    if(val) {
+        return opt == val ? 'selected' : '';
+    } else {
+        return opt == val2 ? 'selected' : '';
+    }
 });
 
 Template.registerHelper('isModNotFirst', function(a, b) {
