@@ -7,6 +7,7 @@ Template.App_body.onCreated(function() {
     Meteor.subscribe('slots');
     Meteor.subscribe('volunteers');
     Meteor.subscribe('users');
+    Meteor.subscribe('messages');
 });
 
 Template.App_body.helpers({
