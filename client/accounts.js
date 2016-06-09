@@ -8,12 +8,17 @@ Accounts.ui.config({
         visible: true,
         validate: function(value, errorFunction) {
             if (!value) {
-                errorFunction("Please write your first name");
+                errorFunction("Please write your full name");
                 return false;
             } else {
                 return true;
             }
         }
+    }, {
+        fieldName: "birthdate",
+        fieldLabel: "Birthdate (YYYY-MM-DD)",
+        inputType: "date",
+        visible: true
     }, {
         fieldName: "phone",
         fieldLabel: "Phone (optional)",

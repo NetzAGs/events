@@ -4,12 +4,16 @@ import { Template } from 'meteor/templating';
 Template.registerHelper('inputDate', function(date) {
     if(date) {
         return moment(date).format("YYYY-MM-DD");
+    } else {
+        return "";
     }
 });
 
 Template.registerHelper('displayDate', function(date) {
     if(date) {
         return moment(date).format("D.M.YYYY");
+    } else {
+        return "";
     }
 });
 

@@ -3,6 +3,8 @@
         <div class="form-group">
             <label for="profile-form-{{user._id}}-name">Name</label>
             <input  id="profile-form-{{user._id}}-name" type="text" class="form-control" placeholder="Name" name="name" value="{{user.profile.name}}">
+            <label for="profile-form-{{user._id}}-birthdate">{{lang "Geburtsdatum (JJJJ-MM-TT)" "Birthdate (YYYY-MM-DD)"}}</label>
+            <input  id="profile-form-{{user._id}}-birthdate" type="date" class="form-control" placeholder="{{lang "Geburtsdatum (JJJJ-MM-TT)" "Birthdate (YYYY-MM-DD)"}}" name="birthdate" value="{{inputDate user.profile.birthdate}}">
             <label for="profile-form-{{user._id}}-email">Email</label>
             <input  id="profile-form-{{user._id}}-email" type="email" class="form-control" placeholder="Email" name="email" value="{{user.emails.[0].address}}">
             <label for="profile-form-{{user._id}}-phone">{{lang "Telefon" "Phone"}}</label>

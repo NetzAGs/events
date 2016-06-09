@@ -8,6 +8,7 @@ Template.Profile_form.events({
             email: event.target.email.value,
             profile: {
                 name: event.target.name.value,
+                birthdate: new Date(event.target.birthdate.value),
                 phone: event.target.phone.value,
                 dorm: event.target.dorm.value,
                 room: event.target.room.value,
