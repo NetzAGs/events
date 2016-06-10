@@ -14,22 +14,12 @@ Template.Tasks_item.helpers({
 		}
 		return perm;
 	},
+    taskAdminMailto() {
+        let mailto = "mailto:";
+        mailto += "foo@bar.de";
+        return mailto;
+    },
 	slots() {
 		return Slots.find({taskId: this.task._id}, {sort: {startTime: 1}});
 	}
-});
-
-Template.Tasks_item.events({
-    'click .task-admin'(event) {
-        event.preventDefault();
-        FlowRouter.go('tasks.admin', this.task);
-    },
-    'click .task-volunteers'(event) {
-        event.preventDefault();
-        FlowRouter.go('tasks.volunteers', this.task);
-    },
-    'click .task-message'(event) {
-        event.preventDefault();
-        FlowRouter.go('tasks.message', this.task);
-    }
 });

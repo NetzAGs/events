@@ -3,13 +3,14 @@
          style="background: {{#if task.img}} linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('{{task.img}}'); background-size: cover; background-repeat: no-repeat; background-position: center;{{else}} #442255; {{/if}} color: white;">
         <h2>{{lang task.title.de task.title.en}}</h2>
         <p>{{lang task.desc.de task.desc.en}}</p>
-        {{#if hasPermission}}
         <p>
-        <button class="btn btn-success task-volunteers">{{lang "Helfer" "Volunteers"}}</button>
-        <button class="btn btn-warning task-message">{{lang "Nachricht" "Message"}}</button>
-        <button class="btn btn-danger task-admin">Admin</button>
-        </p>
+        <a class="btn btn-primary task-contact" href="{{pathFor 'tasks.contact' _id=task._id}}">{{lang "Kontakt" "Contact"}}</a>
+        {{#if hasPermission}}
+        <a class="btn btn-success task-volunteers" href="{{pathFor 'tasks.volunteers' _id=task._id}}">{{lang "Helfer" "Volunteers"}}</a>
+        <a class="btn btn-warning task-message" href="{{pathFor 'tasks.message' _id=task._id}}">{{lang "Nachricht" "Message"}}</a>
+        <a class="btn btn-danger task-admin" href="{{pathFor 'tasks.admin' _id=task._id}}">Admin</a>
         {{/if}}
+        </p>
         <ul class="slot-list">
             {{#each slot in slots}}
             {{> Slots_item slot=slot uid=uid suffix="" temp=temp }}

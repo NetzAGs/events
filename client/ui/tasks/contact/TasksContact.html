@@ -1,0 +1,21 @@
+<template name="Tasks_contact">
+    <div class="row">
+        <h1 class="col-xs-12"><a href="{{eventPath}}">{{event.title}}</a> / {{lang task.title.de task.title.en}}</h1>
+        <h2 class="col-xs-12">{{lang "Koordinatoren kontaktieren" "Contact coordinators"}}</h2>
+    </div>
+    <form class="taskContact">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 form-group">
+                <label for="taskContactTitle">{{lang "Betreff" "Subject"}}</label>
+                <input type="text" class="form-control" id="taskContactTitle" name="taskContactTitle" placeholder="{{lang "Betreff" "Subject"}}" value="{{lang task.title.de task.title.en}}">
+                <label for="taskContactText">{{lang "Nachricht" "Message"}}</label>
+                <textarea class="form-control" id="taskContactText" name="taskContactText" rows=5 placeholder="{{lang "Nachricht" "Message"}}"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <input type="submit" class="btn btn-primary" value="{{lang "Senden" "Send"}}">
+            </div>
+        </div>
+    </form>
+</template>
