@@ -19,7 +19,12 @@ Template.registerHelper('displayDate', function(date) {
 
 Template.registerHelper('fmtdatetime', function(date) {
     if(date) {
-        return moment(date).format("YYYY-MM-DD HH:mm");
+        console.log("fmtdatetime", moment(date).format("YYYY-MM-DD[T]HH:mm"));
+        return moment(date).format("YYYY-MM-DD[T]HH:mm");
+        //console.log("fmtdatetime:", moment(date).toISOString());
+        //return moment(date).toISOString();
+    } else {
+        return "";
     }
 });
 

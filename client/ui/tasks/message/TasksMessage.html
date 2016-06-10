@@ -37,7 +37,7 @@
                     {{#each slot in slots}}
                     <li>
                         <input type="checkbox" id="taskMsgSlot-{{slot._id}}" class="task-msg-slot" data-slotid="{{slot._id}}">
-                        <label for="taskMsgSlot-{{slot._id}}">{{lang slot.title.de slot.title.en}}</label>
+                        <label for="taskMsgSlot-{{slot._id}}">{{lang slot.title.de slot.title.en}} ({{slot.curcount}}/{{slot.mincap}}+{{diff slot.maxcap slot.mincap}})</label>
                     </li>
                     {{/each}}
                 </ul>

@@ -2,17 +2,19 @@
     <hr>
     <form class="modify-slot">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="{{lang "Titel (en)" "Title (en)"}}" name="slotTitleEn" value="{{title.en}}">
-            <input type="text" class="form-control" placeholder="{{lang "Titel (de)" "Title (de)"}}" name="slotTitleDe" value="{{title.de}}">
+            <label for="slot-titleDe-{{_id}}">{{lang "Titel (de)" "Title (de)"}}</label>
+            <input type="text" class="form-control" placeholder="{{lang "Titel (de)" "Title (de)"}}" id="slot-titleDe-{{_id}}" name="slotTitleDe" value="{{title.de}}">
+            <label for="slot-titleEn-{{_id}}">{{lang "Titel (en)" "Title (en)"}}</label>
+            <input type="text" class="form-control" placeholder="{{lang "Titel (en)" "Title (en)"}}" id="slot-titleEn-{{_id}}" name="slotTitleEn" value="{{title.en}}">
             <input type="checkbox" name="slotAllday" id="slot-allday-{{_id}}" checked="{{allday}}">
             <label for="slot-allday-{{_id}}">{{lang "ganztägig" "whole day"}}</label>
             <br>
             <label for="slot-starttime-{{_id}}">{{lang "Startzeit" "Start time"}}</label>
-            <input type="datetime" class="form-control" placeholder="{{lang "Startzeit" "Start time"}}" id="slot-starttime-{{_id}}" name="slotStartTime" value="{{fmtdatetime startTime}}">
+            <input type="datetime-local" class="form-control" placeholder="{{lang "Startzeit" "Start time"}}" id="slot-starttime-{{_id}}" name="slotStartTime" value="{{fmtdatetime startTime}}">
             <label for="slot-endtime-{{_id}}">{{lang "Endzeit" "End time"}}</label>
                 <br>
-                <input type="datetime" class="form-control" placeholder="{{lang "Endzeit" "End time"}}" id="slot-endtime-{{_id}}" name="slotEndTime" value="{{fmtdatetime endTime}}">
-                <label for="slotMincap">{{lang "Helfer" "Volunteers"}}</label>
+                <input type="datetime-local" class="form-control" placeholder="{{lang "Endzeit" "End time"}}" id="slot-endtime-{{_id}}" name="slotEndTime" value="{{fmtdatetime endTime}}">
+                <label for="slotMincap">{{lang "Helfer (eingetragen:" "Volunteers (registered:"}} {{curcount}})</label>
             <input type="number" class="form-control" id="slotMincap" name="slotMincap" value="{{mincap}}">
             <label for="slotBuffer">{{lang "Puffer" "Buffer"}}</label>
             <input type="number" class="form-control" id="slotBuffer" name="slotBuffer" value="{{diff maxcap mincap}}">

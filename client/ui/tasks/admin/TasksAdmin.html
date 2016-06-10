@@ -50,7 +50,7 @@
             <form class="create-slot">
                 <div class="form-group">
                     <label for="createSlotStartTime">{{lang "Startzeit" "Start time"}}</label>
-                    <input type="datetime" class="form-control" id="createSlotStartTime" name="slotStartTime" value="{{fmtdatetime event.date}}">
+                    <input type="datetime-local" class="form-control" id="createSlotStartTime" name="slotStartTime" value="{{fmtdatetime event.date}}">
                     <label for="createSlotDuration">{{lang "Dauer (h:mm)" "Duration (h:mm)"}}</label>
                     <input type="time" class="form-control" name="slotDuration" id="createSlotDuration" value="02:00">
                     <label for="createSlotMincap">{{lang "Helfer" "Volunteers"}}</label>
