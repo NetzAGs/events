@@ -7,7 +7,8 @@
             <a class="btn btn-success event-volunteers" href="{{pathFor 'events.volunteers' _id=selevent._id}}">{{lang "Helfer" "Volunteers"}}</a>
             {{/if}}
             {{#if isInRole 'event_admin,system_admin' selevent._id}}
-            <a class="btn btn-warning event-admin" href="{{pathFor 'events.admin' _id=selevent._id}}">Admin</a>
+            <a class="btn btn-warning event-admin" href="{{pathFor 'events.message' _id=selevent._id}}">{{lang "Nachricht" "Message"}}</a>
+            <a class="btn btn-danger event-admin" href="{{pathFor 'events.admin' _id=selevent._id}}">Admin</a>
             {{/if}}
         </h1>
 

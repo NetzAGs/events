@@ -1,0 +1,52 @@
+<template name="Events_message">
+    <div class="row">
+        <h1 class="col-xs-12"><a href="{{eventPath}}">{{event.title}}</a></h1>
+    </div>
+    <div class="row">
+        <p class="col-xs-12">
+        <em>{{lang "Bitte deutschen UND englischen Text ausfüllen, da die Empfänger jeweils nur eine Version bekommen!" "Please fill out the german AND english text, because recipients only get one version!"}}</em>
+        </p>
+    </div>
+    <form class="sendEventMessage">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="eventMsgTitleDe">{{lang "Betreff (deutsch)" "Subject (german)"}}</label>
+                <input type="text" class="form-control" id="eventMsgTitleDe" name="eventMsgTitleDe" placeholder="{{lang "Betreff (deutsch)" "Subject (german)"}}">
+                <label for="eventMsgDe">{{lang "Nachricht (deutsch)" "Message (german)"}}</label>
+                <textarea class="form-control" id="eventMsgDe" name="eventMsgDe" rows=5 placeholder="{{lang "Nachricht (deutsch)" "Message (german)"}}"></textarea>
+            </div>
+            <div class="col-md-6">
+                <label for="eventMsgTitleEn">{{lang "Betreff (englisch)" "Subject (english)"}}</label>
+                <input type="text" class="form-control" id="eventMsgTitleEn" name="eventMsgTitleEn" placeholder="{{lang "Betreff (englisch)" "Subject (english)"}}">
+                <label for="eventMsgEn">{{lang "Nachricht (englisch)" "Message (english)"}}</label>
+                <textarea class="form-control" id="eventMsgEn" name="eventMsgEn" rows=5 placeholder="{{lang "Nachricht (englisch)" "Message (english)"}}"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{{lang "Empfänger" "Recipients"}}</h2>
+                <ul class="slot-list recipients-list">
+                    <li>
+                        <input type="checkbox" id="eventMsgAll" class="event-msg-all">
+                        <label for="eventMsgAll">{{lang "Alle auswählen" "Select all"}}</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="eventMsgCoordinators" class="event-msg-coordinators" checked="checked">
+                        <label for="eventMsgCoordinators">{{lang "Koordinatoren" "Coordinators"}}</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="eventMsgChecked" class="event-msg-checked">
+                        <label for="eventMsgChecked">{{lang "Eingecheckte Helfer" "Checked volunteers"}}</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="eventMsgUnchecked" class="event-msg-unchecked">
+                        <label for="eventMsgUnchecked">{{lang "Nicht eingecheckte Helfer" "Unchecked volunteers"}}</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <input type="submit" class="btn btn-primary" value="{{lang "Senden" "Send"}}">
+            </div>
+        </div>
+    </form>
+</template>
