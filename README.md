@@ -91,6 +91,6 @@ This project uses the meteor package [alanning:roles](https://atmospherejs.com/a
 
 ### Event coordinators
 
-`event_id: ["coordinator"]`
+**role:** `event_id: ["coordinator"]`
 
 * add and list volunteers
