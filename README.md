@@ -47,7 +47,8 @@ Backup database:
 
 Make user a system admin (first argument can be `{}` instead of `{_id: ...}` if there's only one user in the db, otherwise you have to provide a user id):
 
-    ssh root@production.meteor.example.com docker exec -it mongodb mongo events
+    ssh root@production.meteor.example.com
+    docker exec -it mongodb mongo events
     db.users.update({_id:"GQ4fy3aRrBQfFqD6h"}, {$set: {roles: {__global_roles__: ["system_admin"]}}});
 
 This user can then use the web GUI to set other system or event admins and create events. S.b. for details on access roles used in this project.
