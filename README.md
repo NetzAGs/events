@@ -2,6 +2,10 @@
 
 [meteor](https://www.meteor.com/) based events volunteer management platform.
 
+## Screenshot
+
+![Admin view](public/img/screenshot.jpg "Admin view")
+
 ## Development
 
 See http://guide.meteor.com/
