@@ -12,40 +12,59 @@ See http://guide.meteor.com/
 
 ## Deployment
 
-**Important:** as mupx is deprecated, we'll change this to [mup](https://github.com/zodern/meteor-up) soon!
+**Important:** when switching from old mupx to mup, you don't have to run setup again. Just init, set up the mup.js and you can deploy.
 
-You can choose from [different deployment methods](http://guide.meteor.com/deployment.html), the recommended is [mupx](https://github.com/arunoda/meteor-up/tree/mupx):
+You can choose from [different deployment methods](http://guide.meteor.com/deployment.html), the recommended is [mup](https://github.com/zodern/meteor-up):
 
-    npm install -g mupx
+    npm install -g mup
     mkdir events-prod && cd events-prod
-    mupx init
+    mup init
 
-Example mup.json:
+Example mup.js:
 
-   
-    {
-      // Server authentication info
-      "servers": [
-    	{
-    	  "host": "production.meteor.example.com",
-    	  "username": "root",
-    	  "pem": "~/.ssh/id_rsa",
-    	  "env": {
-    		  "HTTP_FORWARDED_COUNT": 1, // nginx proxy
-    		  "MAIL_URL": "smtp://mail.example.com:25/"
-    	  }
-    	}
-      ],
-      "setupMongo": true,
-      "appName": "events",
-      "app": "/project/path/events",
-      "env": {
-    	"PORT": 443,
-    	"ROOT_URL": "https://events.example.com"
-      },
-      "deployCheckWaitTime": 300, // the default value didn't work for me
-      "enableUploadProgressBar": true
-    } 
+	module.exports = {
+		servers: {
+			one: {
+				host: 'production.meteor.example.com',
+				username: 'root',
+				pem: '~/.ssh/id_rsa',
+			}
+		},
+
+		meteor: {
+			name: 'events',
+			path: '/project/path/events',
+			servers: {
+				one: {},
+			},
+			buildOptions: {
+				serverOnly: true,
+			},
+			env: {
+				ROOT_URL: 'http://events.example.com',
+				MONGO_URL: 'mongodb://localhost/meteor',
+				HTTP_FORWARDED_COUNT: 1, // nginx proxy
+				MAIL_URL: "smtp://mail.example.com:25/"
+			},
+
+			dockerImage: 'abernix/meteord:base',
+			deployCheckWaitTime: 300, // the default value didn't work for me
+			enableUploadProgressBar: true
+		},
+
+		mongo: {
+			oplog: true,
+			port: 27017,
+			version: '3.4.1',
+			servers: {
+				one: {},
+			},
+		},
+	};
+
+Deploy:
+
+	mup deploy
 
 Backup database:
 
