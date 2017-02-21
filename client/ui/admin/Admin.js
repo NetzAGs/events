@@ -8,7 +8,7 @@ Template.Admin.helpers({
     autocompleteSettings() {
         return {
             position: 'bottom',
-            limit: 5,
+            limit: 25,
             rules: [{
                 collection: Meteor.users,
                 field: 'profile.name',

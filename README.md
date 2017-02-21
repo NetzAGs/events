@@ -8,6 +8,8 @@ See http://guide.meteor.com/
 
 ## Deployment
 
+**Important:** as mupx is deprecated, we'll change this to [mup](https://github.com/zodern/meteor-up) soon!
+
 You can choose from [different deployment methods](http://guide.meteor.com/deployment.html), the recommended is [mupx](https://github.com/arunoda/meteor-up/tree/mupx):
 
     npm install -g mupx
