@@ -78,6 +78,9 @@ Make user a system admin (first argument can be `{}` instead of `{_id: ...}` if 
 
 This user can then use the web GUI to set other system or event admins and create events. S.b. for details on access roles used in this project.
 
+## Mobile app
+Information on how to build the Cordova-based Android and iOS app can be found [here](https://guide.meteor.com/mobile.html). Remember that you need to pass the `--server <host>:<port>` parameter to the `meteor build` command (or `--mobile-server` to the `meteor run` command) if you want the app to connect to a running production server.
+
 ## Roles
 This project uses the meteor package [alanning:roles](https://atmospherejs.com/alanning/roles). Check out its documentation and examples first!
 
